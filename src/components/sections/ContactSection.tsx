@@ -191,6 +191,9 @@ export default function ContactSection() {
                        <option value="SSC">SSC (CGL/MTS)</option>
                        <option value="RAILWAYS">Railways (RRB)</option>
                        <option value="TNPSC">TNPSC Group Exams</option>
+                       <option value="POLICE">Police (SI/PC)</option>
+                       <option value="TET">TET / Teachers Exam</option>
+                       <option value="OTHERS">Others exams</option>
                     </select>
                   </div>
                 </div>

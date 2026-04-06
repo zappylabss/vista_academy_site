@@ -175,14 +175,15 @@ export default function Home() {
               layoutId={`course-${COURSES.indexOf(selectedCourse)}`}
               className="relative w-full max-w-4xl bg-white rounded-[3rem] overflow-hidden shadow-2xl pointer-events-auto flex flex-col md:flex-row group"
             >
-              <div className="md:w-2/5 relative h-64 md:h-auto overflow-hidden">
-                <img 
-                  src={selectedCourse.image} 
-                  alt={selectedCourse.title} 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className={`absolute top-6 left-6 w-16 h-16 rounded-3xl ${selectedCourse.color} flex items-center justify-center text-4xl shadow-xl ring-4 ring-white/20`}>
-                  {selectedCourse.icon}
+              <div className="md:w-2/5 relative h-64 md:h-auto overflow-hidden bg-slate-50 flex items-center justify-center p-12">
+                <div className="flex flex-col items-center text-center gap-6">
+                   <div className={`w-32 h-32 rounded-[2.5rem] ${selectedCourse.color} flex items-center justify-center text-6xl shadow-2xl ring-8 ring-white/50 animate-bounce`}>
+                      {selectedCourse.icon}
+                   </div>
+                   <div className="space-y-1">
+                      <div className="text-vista-blue font-black text-xl uppercase tracking-tighter">Test Vista Academy</div>
+                      <div className="text-vista-gold font-bold text-xs uppercase tracking-[0.2em]">Excellence Reimagined</div>
+                   </div>
                 </div>
               </div>
               <div className="flex-1 p-8 md:p-12 space-y-8 relative">

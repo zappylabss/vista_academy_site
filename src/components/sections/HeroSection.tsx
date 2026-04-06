@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Trophy, Users, Star } from "lucide-react";
+import { ArrowRight, Trophy, Users, Star, GraduationCap, Laptop, Sparkles, BookOpen, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
 export default function HeroSection() {
@@ -32,19 +32,35 @@ export default function HeroSection() {
             South India's most trusted coaching center for Banking, SSC, Railways, and TNPSC. Join 200k+ students forging their path to government careers.
           </p>
           
-          <div className="flex flex-wrap gap-4">
-            <Link 
-              href="#contact" 
-              className="bg-vista-blue text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-vista-accent transition-all hover:translate-x-1 hover:shadow-xl"
-            >
-              Start Learning Now <ArrowRight size={20} />
-            </Link>
-            <Link 
-              href="#courses" 
-              className="bg-white text-vista-blue border-2 border-vista-blue/10 px-8 py-4 rounded-xl font-bold hover:bg-vista-blue/5 transition-all"
-            >
-              Explore Courses
-            </Link>
+          <div className="flex flex-col gap-6">
+            <div className="flex flex-wrap gap-4">
+              <Link 
+                href="#contact" 
+                className="bg-vista-blue text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-vista-accent transition-all hover:translate-x-1 hover:shadow-xl group"
+              >
+                Start Learning Now <ArrowRight size={20} />
+              </Link>
+              <Link 
+                href="#courses" 
+                className="bg-white text-vista-blue border-2 border-vista-blue/10 px-8 py-4 rounded-xl font-bold hover:bg-vista-blue/5 transition-all"
+              >
+                Explore Courses
+              </Link>
+            </div>
+            
+            {/* Detail Icons below main CTA */}
+            <div className="flex flex-wrap items-center gap-6 pt-2">
+              {[
+                { icon: Sparkles, text: "Live Classes" },
+                { icon: BookOpen, text: "Daily Mock Tests" },
+                { icon: CheckCircle2, text: "Placement Support" }
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2 text-vista-blue/40 font-bold text-xs uppercase tracking-widest">
+                  <item.icon size={16} className="text-vista-gold" />
+                  {item.text}
+                </div>
+              ))}
+            </div>
           </div>
           
           <div className="pt-8 flex items-center gap-12 border-t border-vista-blue/5">
@@ -71,8 +87,11 @@ export default function HeroSection() {
           className="relative grid grid-cols-2 gap-4"
         >
           <div className="space-y-4">
-             <div className="h-64 bg-vista-blue rounded-3xl overflow-hidden relative group">
+             <div className="h-64 bg-vista-blue rounded-3xl overflow-hidden relative group p-8 flex flex-col justify-between">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="relative z-10 w-12 h-12 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center">
+                   <GraduationCap className="text-white w-7 h-7" />
+                </div>
                 <div className="absolute bottom-6 left-6 text-white font-bold text-xl uppercase tracking-tighter">Campus Excellence</div>
              </div>
              <div className="h-80 bg-vista-gold rounded-3xl p-8 flex flex-col justify-between">
@@ -86,7 +105,10 @@ export default function HeroSection() {
                 <div className="text-vista-blue text-4xl font-black">200K+</div>
                 <div className="text-sm text-vista-blue/60 font-medium tracking-widest uppercase">Registered Aspirants</div>
              </div>
-             <div className="h-64 bg-vista-accent/10 rounded-3xl ring-1 ring-vista-accent/20 flex flex-col justify-end p-8">
+             <div className="h-64 bg-vista-accent/10 rounded-3xl ring-1 ring-vista-accent/20 flex flex-col justify-between p-8">
+                <div className="w-12 h-12 bg-vista-accent/20 rounded-2xl flex items-center justify-center">
+                   <Laptop className="text-vista-accent w-7 h-7" />
+                </div>
                 <div className="text-vista-accent font-bold text-xl">Digital Learning Support</div>
              </div>
           </div>
