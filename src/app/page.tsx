@@ -150,10 +150,15 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: idx * 0.05 }}
                 viewport={{ once: true }}
-                className="h-24 md:h-28 rounded-[2rem] bg-slate-50 flex flex-col items-center justify-center p-4 md:p-6 text-center ring-1 ring-black/5 hover:ring-vista-gold/50 hover:bg-white hover:shadow-2xl hover:shadow-vista-gold/10 transition-all cursor-pointer group"
+                className="h-32 md:h-40 rounded-[2.5rem] bg-slate-50 flex flex-col items-center justify-center p-4 md:p-6 text-center ring-1 ring-black/5 hover:ring-vista-gold/50 hover:bg-white hover:shadow-2xl hover:shadow-vista-gold/10 transition-all cursor-pointer group relative overflow-hidden"
               >
-                <div className="text-2xl mb-1 group-hover:scale-110 transition-transform">{course.icon}</div>
-                <span className="text-vista-blue font-black text-xs md:text-sm group-hover:text-vista-gold transition-all line-clamp-2 uppercase">{course.title}</span>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-br from-vista-gold/5 to-transparent pointer-events-none" />
+                <div className="text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform duration-500 drop-shadow-sm">
+                  {course.icon}
+                </div>
+                <span className="text-vista-blue font-black text-[10px] md:text-xs group-hover:text-vista-gold transition-all line-clamp-2 uppercase tracking-tighter leading-tight relative z-10">
+                  {course.title}
+                </span>
               </motion.div>
             ))}
           </div>
@@ -181,7 +186,7 @@ export default function Home() {
                       {selectedCourse.icon}
                    </div>
                    <div className="space-y-1">
-                      <div className="text-vista-blue font-black text-xl uppercase tracking-tighter">Test Vista Academy</div>
+                      <div className="text-vista-blue font-black text-xl uppercase tracking-tighter">Vista Academy</div>
                       <div className="text-vista-gold font-bold text-xs uppercase tracking-[0.2em]">Excellence Reimagined</div>
                    </div>
                 </div>
