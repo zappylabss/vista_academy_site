@@ -120,7 +120,7 @@ export default function Home() {
       <FeaturesSection />
       
       {/* Interactive Exam Spotlight */}
-      <section className="py-24 px-6 overflow-hidden bg-white">
+      <section id="exams" className="py-24 px-6 overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="text-center space-y-4">
             <motion.h2 

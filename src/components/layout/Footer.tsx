@@ -43,11 +43,17 @@ export default function Footer() {
         <div>
           <h4 className="text-lg font-bold mb-6 text-vista-gold uppercase tracking-widest">Navigation</h4>
           <ul className="space-y-4 text-white/70">
-            {["Home", "Offline Courses", "Online Coaching", "Latest Results", "About Us", "Contact Locations"].map((item) => (
-              <li key={item}>
-                <Link href="#" className="hover:text-vista-gold transition-colors flex items-center gap-2 group">
+            {[
+              { name: "Home", href: "#" },
+              { name: "Learning Programs", href: "#courses" },
+              { name: "Targeted Exams", href: "#exams" },
+              { name: "Success Stories", href: "#achievers" },
+              { name: "Our Locations", href: "#contact" }
+            ].map((item) => (
+              <li key={item.name}>
+                <Link href={item.href} className="hover:text-vista-gold transition-colors flex items-center gap-2 group">
                   <span className="w-1.5 h-1.5 bg-vista-gold/50 rounded-full group-hover:bg-vista-gold transition-colors" />
-                  {item}
+                  {item.name}
                 </Link>
               </li>
             ))}
@@ -69,28 +75,24 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Newsletter / CTA */}
+        {/* Contact Info */}
         <div className="space-y-6">
-          <h4 className="text-lg font-bold text-vista-gold uppercase tracking-widest">Get Updates</h4>
-          <p className="text-sm text-white/60">Subscribe for the latest exam dates and free study materials.</p>
-          <div className="relative group">
-            <input 
-              type="email" 
-              placeholder="Email address"
-              className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 focus:outline-none focus:ring-1 focus:ring-vista-gold transition-all placeholder:text-white/30"
-            />
-            <button className="absolute right-2 top-2 bg-vista-gold text-vista-blue p-1.5 rounded-lg hover:bg-white transition-colors">
-              <Send size={18} />
-            </button>
-          </div>
-          <div className="flex flex-col gap-3 pt-4 border-t border-white/5">
+          <h4 className="text-lg font-bold text-vista-gold uppercase tracking-widest">Contact Us</h4>
+          <p className="text-sm text-white/60 leading-relaxed">
+            Get in touch with our expert counselors for personalized guidance on your career path.
+          </p>
+          <div className="flex flex-col gap-4 pt-4 border-t border-white/5">
              <div className="flex items-center gap-3 text-white/70 hover:text-white transition-colors">
                <Phone size={18} className="text-vista-gold" />
-               <span className="text-sm">+91 93452 54176</span>
+               <span className="text-sm font-medium">+91 93452 54176</span>
              </div>
              <div className="flex items-center gap-3 text-white/70 hover:text-white transition-colors">
                <Mail size={18} className="text-vista-gold" />
-               <span className="text-sm text-shadow">support@vistaacademy.com</span>
+               <span className="text-sm font-medium">pravinvista.slm@gmail.com</span>
+             </div>
+             <div className="flex items-start gap-3 text-white/70 hover:text-white transition-colors">
+               <MapPin size={18} className="text-vista-gold mt-1 flex-shrink-0" />
+               <span className="text-sm font-medium">Salem & Erode, Tamil Nadu</span>
              </div>
           </div>
         </div>

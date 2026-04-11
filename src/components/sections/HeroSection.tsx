@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-24 pb-20 overflow-hidden px-6">
+    <section id="hero" className="relative min-h-[90vh] flex items-center pt-24 pb-20 overflow-hidden px-6">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-vista-blue/5 -skew-x-12 transform translate-x-1/4 -z-10" />
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-vista-gold/10 rounded-full blur-[100px] -z-10" />
@@ -84,7 +84,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="relative grid grid-cols-2 gap-4"
+          className="relative grid grid-cols-1 md:grid-cols-2 gap-4"
         >
           <div className="space-y-4">
              <div className="h-64 bg-vista-blue rounded-3xl overflow-hidden relative group p-8 flex flex-col justify-between">

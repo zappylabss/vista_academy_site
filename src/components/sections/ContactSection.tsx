@@ -50,20 +50,24 @@ export default function ContactSection() {
     setIsSubmitting(true);
 
     try {
-      // Send data to Email
-      await sendContactEmail({
+      // 1. Send data to Email (in background to avoid blocking the user action context for window.open)
+      sendContactEmail({
         ...formData,
         branch: activeTab.name
-      });
+      }).catch(err => console.error("Email sync error:", err));
 
-      // Existing WhatsApp feature
+      // 2. Existing WhatsApp feature (Trigger immediately after email start)
       const text = `Hi Vista Academy (${activeTab.name}), I'm ${formData.name}. My phone number is ${formData.phone}. I'm interested in the ${formData.course} course. Please contact me soon!`;
       const encoded = encodeURIComponent(text);
       window.open(`https://wa.me/${activeTab.wa}?text=${encoded}`, "_blank");
+      
+      // 3. Success feedback & Reset
+      setFormData({ name: "", phone: "", course: "" });
     } catch (error) {
       console.error("Form submission error:", error);
     } finally {
-      setIsSubmitting(false);
+      // Delay reset slightly for visual feedback if needed
+      setTimeout(() => setIsSubmitting(false), 500);
     }
   };
 
@@ -90,13 +94,13 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Location Toggle & Details */}
           <div className="space-y-8">
-            <div className="flex gap-4 p-2 bg-slate-200/50 rounded-2xl w-fit">
+            <div className="flex flex-wrap gap-2 md:gap-4 p-2 bg-slate-200/50 rounded-2xl w-fit">
               {locations.map((loc) => (
                 <button
                   key={loc.id}
                   onClick={() => setActiveTab(loc)}
                   className={cn(
-                    "px-8 py-3 rounded-xl font-bold transition-all text-sm uppercase tracking-widest",
+                    "px-4 md:px-8 py-3 rounded-xl font-bold transition-all text-xs md:text-sm uppercase tracking-widest",
                     activeTab.id === loc.id 
                       ? "bg-white text-vista-blue shadow-lg scale-105" 
                       : "text-vista-blue/40 hover:text-vista-blue/60"
