@@ -223,16 +223,16 @@ export default function ContactSection() {
                 <button 
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-green-500 text-white py-5 rounded-2xl font-black text-lg flex items-center justify-center gap-3 hover:bg-green-600 transition-all hover:scale-[1.02] active:scale-95 shadow-xl shadow-green-500/20 disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full bg-green-500 text-white py-5 rounded-2xl font-black text-base md:text-lg flex items-center justify-center gap-3 hover:bg-green-600 transition-all hover:scale-[1.02] active:scale-95 shadow-xl shadow-green-500/20 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="animate-spin" size={28} />
+                      <Loader2 className="animate-spin" size={24} />
                       Processing...
                     </>
                   ) : (
                     <>
-                      <MessageCircle size={28} />
+                      <MessageCircle size={24} className="md:w-7 md:h-7" />
                       Connect to {activeTab.id} Branch
                     </>
                   )}

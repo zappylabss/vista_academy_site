@@ -172,62 +172,65 @@ export default function Home() {
             />
             <motion.div 
               layoutId={`course-${COURSES.indexOf(selectedCourse)}`}
-              className="relative w-full max-w-4xl bg-white rounded-[3rem] overflow-hidden shadow-2xl pointer-events-auto flex flex-col md:flex-row group"
+              className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto md:overflow-hidden bg-white rounded-[2rem] md:rounded-[3rem] shadow-2xl pointer-events-auto flex flex-col md:flex-row group"
             >
-              <div className="md:w-2/5 relative h-64 md:h-auto overflow-hidden bg-slate-50 flex items-center justify-center p-12">
-                <div className="flex flex-col items-center text-center gap-6">
-                   <div className={`w-32 h-32 rounded-[2.5rem] ${selectedCourse.color} flex items-center justify-center text-6xl shadow-2xl ring-8 ring-white/50 animate-bounce`}>
+              <div className="md:w-2/5 relative h-48 md:h-auto overflow-hidden bg-slate-50 flex items-center justify-center p-8 md:p-12">
+                <div className="flex flex-col items-center text-center gap-4 md:gap-6">
+                   <div className={`w-24 h-24 md:w-32 md:h-32 rounded-[2rem] md:rounded-[2.5rem] ${selectedCourse.color} flex items-center justify-center text-4xl md:text-6xl shadow-2xl ring-4 md:ring-8 ring-white/50 animate-bounce`}>
                       {selectedCourse.icon}
                    </div>
                    <div className="space-y-1">
-                      <div className="text-vista-blue font-black text-xl uppercase tracking-tighter">Vista Academy</div>
-                      <div className="text-vista-gold font-bold text-xs uppercase tracking-[0.2em]">Excellence Reimagined</div>
+                      <div className="text-vista-blue font-black text-lg md:text-xl uppercase tracking-tighter">Vista Academy</div>
+                      <div className="text-vista-gold font-bold text-[10px] md:text-xs uppercase tracking-[0.2em]">Excellence Reimagined</div>
                    </div>
                 </div>
               </div>
-              <div className="flex-1 p-8 md:p-12 space-y-8 relative">
+              <div className="flex-1 p-6 md:p-12 space-y-6 md:space-y-8 relative">
                 <button 
                   onClick={() => setSelectedCourse(null)}
-                  className="absolute top-8 right-8 w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-vista-blue hover:bg-vista-gold transition-colors"
+                  className="absolute top-4 right-4 md:top-8 md:right-8 w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-vista-blue hover:bg-vista-gold transition-colors z-20"
                 >
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 0M6 6l12 12" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <span className="px-4 py-1.5 rounded-full bg-vista-gold/10 text-vista-gold font-bold text-xs uppercase tracking-widest ring-1 ring-vista-gold/20">
+                <div className="space-y-3 md:space-y-4">
+                  <div className="flex items-center gap-2 md:gap-3">
+                    <span className="px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-vista-gold/10 text-vista-gold font-bold text-[10px] md:text-xs uppercase tracking-widest ring-1 ring-vista-gold/20">
                       Standard Program
                     </span>
-                    <span className="text-slate-300 font-black">•</span>
-                    <span className="text-slate-400 font-bold text-xs uppercase tracking-widest flex items-center gap-1.5">
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <span className="text-slate-300 font-black text-xs md:text-base">•</span>
+                    <span className="text-slate-400 font-bold text-[10px] md:text-xs uppercase tracking-widest flex items-center gap-1.5">
+                      <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       {selectedCourse.duration}
                     </span>
                   </div>
-                  <h3 className="text-4xl md:text-5xl font-black text-vista-blue uppercase tracking-tighter leading-none">{selectedCourse.title}</h3>
+                  <h3 className="text-3xl md:text-5xl font-black text-vista-blue uppercase tracking-tighter leading-none">{selectedCourse.title}</h3>
                 </div>
-                <div className="space-y-6">
-                  <p className="text-slate-500 font-medium text-lg leading-relaxed">
+                <div className="space-y-5 md:space-y-6">
+                  <p className="text-slate-500 font-medium text-base md:text-lg leading-relaxed">
                     {selectedCourse.content}
                   </p>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                     {[
                       { l: "Material", v: "Daily PDFs" },
                       { l: "Testing", v: "Weekly Exams" },
                       { l: "Mentoring", v: "1-on-1 Help" },
                       { l: "Access", v: "Offline/Online" }
                     ].map((feat, i) => (
-                      <div key={i} className="bg-slate-50 p-4 rounded-2xl flex flex-col gap-1 ring-1 ring-black/5">
-                        <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">{feat.l}</span>
-                        <span className="text-vista-blue font-bold">{feat.v}</span>
+                      <div key={i} className="bg-slate-50 p-3 md:p-4 rounded-xl md:rounded-2xl flex flex-col gap-0.5 md:gap-1 ring-1 ring-black/5">
+                        <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-slate-400">{feat.l}</span>
+                        <span className="text-vista-blue font-bold text-sm md:text-base">{feat.v}</span>
                       </div>
                     ))}
                   </div>
                 </div>
-                <button className="w-full h-16 bg-vista-blue text-white rounded-2xl font-black uppercase tracking-widest hover:bg-vista-gold hover:text-vista-blue transition-all flex items-center justify-center gap-3 group/btn">
+                <button 
+                  onClick={() => { setSelectedCourse(null); window.location.hash = "#contact"; }}
+                  className="w-full h-14 md:h-16 bg-vista-blue text-white rounded-xl md:rounded-2xl font-black uppercase tracking-widest hover:bg-vista-gold hover:text-vista-blue transition-all flex items-center justify-center gap-2 md:gap-3 group/btn"
+                >
                   Enroll in course
                   <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />

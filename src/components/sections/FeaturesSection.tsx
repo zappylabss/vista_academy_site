@@ -87,9 +87,9 @@ export default function FeaturesSection() {
                 Tailored education for every aspirant. Choose the path that fits your learning style.
               </p>
             </div>
-            <button className="bg-vista-blue text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-vista-accent transition-all hover:translate-x-1">
+            <a href="#contact" className="bg-vista-blue text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-vista-accent transition-all hover:translate-x-1">
                Compare All Programs <ArrowRight size={20} />
-            </button>
+            </a>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -118,9 +118,6 @@ export default function FeaturesSection() {
                         </li>
                       ))}
                    </ul>
-                   <button className="w-full py-4 border-2 border-slate-100 rounded-2xl text-vista-blue font-black tracking-widest uppercase text-sm hover:border-vista-gold hover:text-vista-gold transition-all group-hover:bg-vista-blue group-hover:text-white group-hover:border-vista-blue">
-                      Discover More
-                   </button>
                 </div>
               </motion.div>
             ))}

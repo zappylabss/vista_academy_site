@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-vista-blue text-white pt-16 pb-8 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-white/10">
-        
+
         {/* About Academy */}
         <div className="space-y-6">
           <Link href="/" className="flex items-center gap-2 group w-fit">
@@ -20,7 +20,7 @@ export default function Footer() {
             </div>
           </Link>
           <p className="text-white/70 leading-relaxed font-light">
-            Empowering students with excellence in competitive exam preparation. 
+            Empowering students with excellence in competitive exam preparation.
             Join the ranks of achievers with our expert mentorship and state-of-the-art facilities.
           </p>
           <div className="flex items-center gap-4">
@@ -29,12 +29,6 @@ export default function Footer() {
             </a>
             <a href="#" className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-vista-gold transition-all hover:scale-110">
               <Instagram size={20} />
-            </a>
-            <a href="#" className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-vista-gold transition-all hover:scale-110">
-              <Twitter size={20} />
-            </a>
-            <a href="#" className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-vista-gold transition-all hover:scale-110">
-              <Linkedin size={20} />
             </a>
           </div>
         </div>
@@ -64,12 +58,11 @@ export default function Footer() {
         <div>
           <h4 className="text-lg font-bold mb-6 text-vista-gold uppercase tracking-widest">Exams</h4>
           <ul className="space-y-4 text-white/70">
-            {["Banking & Insurance", "SSC (CGL/CHSL/MTS)", "Railways (RRB)", "TNPSC Group Exams", "TNUSRB Police", "Central Govt. Exams"].map((item) => (
+            {["Banking & Insurance", "SSC (CGL/CHSL/MTS)", "Railways (RRB)", "TNPSC Group Exams", "TNUSRB Police", "Central Govt. Exams", "Others"].map((item) => (
               <li key={item}>
-                <Link href="#" className="hover:text-vista-gold transition-colors flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 bg-white/10 rounded-full group-hover:bg-vista-gold transition-colors" />
-                  {item}
-                </Link>
+
+                <span className="w-1.5 h-1.5 bg-white/10 rounded-full group-hover:bg-vista-gold transition-colors" />
+                {item}
               </li>
             ))}
           </ul>
@@ -82,18 +75,18 @@ export default function Footer() {
             Get in touch with our expert counselors for personalized guidance on your career path.
           </p>
           <div className="flex flex-col gap-4 pt-4 border-t border-white/5">
-             <div className="flex items-center gap-3 text-white/70 hover:text-white transition-colors">
-               <Phone size={18} className="text-vista-gold" />
-               <span className="text-sm font-medium">+91 93452 54176</span>
-             </div>
-             <div className="flex items-center gap-3 text-white/70 hover:text-white transition-colors">
-               <Mail size={18} className="text-vista-gold" />
-               <span className="text-sm font-medium">pravinvista.slm@gmail.com</span>
-             </div>
-             <div className="flex items-start gap-3 text-white/70 hover:text-white transition-colors">
-               <MapPin size={18} className="text-vista-gold mt-1 flex-shrink-0" />
-               <span className="text-sm font-medium">Salem & Erode, Tamil Nadu</span>
-             </div>
+            <div className="flex items-center gap-3 text-white/70 hover:text-white transition-colors">
+              <Phone size={18} className="text-vista-gold" />
+              <span className="text-sm font-medium">+91 93452 54176</span>
+            </div>
+            <div className="flex items-center gap-3 text-white/70 hover:text-white transition-colors">
+              <Mail size={18} className="text-vista-gold" />
+              <span className="text-sm font-medium">pravinvista.slm@gmail.com</span>
+            </div>
+            <div className="flex items-start gap-3 text-white/70 hover:text-white transition-colors">
+              <MapPin size={18} className="text-vista-gold mt-1 flex-shrink-0" />
+              <span className="text-sm font-medium">Salem & Erode, Tamil Nadu</span>
+            </div>
           </div>
         </div>
       </div>
