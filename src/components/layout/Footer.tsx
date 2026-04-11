@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GraduationCap, Facebook, Twitter, Instagram, Linkedin, Send, Phone, Mail, MapPin } from "lucide-react";
+import { GraduationCap, Facebook, Twitter, Instagram, Linkedin, Send, Phone, Mail, MapPin, Youtube } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,13 +10,21 @@ export default function Footer() {
 
         {/* About Academy */}
         <div className="space-y-6">
-          <Link href="/" className="flex items-center gap-2 group w-fit">
-            <div className="bg-white p-2 rounded-xl group-hover:bg-vista-gold transition-colors">
-              <GraduationCap className="w-8 h-8 text-vista-blue" />
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-xl overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-500">
+              <img
+                src="/images/logo.jpeg"
+                alt="Vista Academy Logo"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div>
-              <span className="text-2xl font-bold text-white block leading-none">VISTA</span>
-              <span className="text-xs uppercase tracking-widest text-vista-gold font-semibold">Academy</span>
+            <div className="flex flex-col">
+              <span className="text-2xl font-black text-white tracking-tighter leading-none">
+                VISTA <span className="text-vista-gold">ACADEMY</span>
+              </span>
+              <span className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-black mt-0.5">
+                Excellence Reimagined
+              </span>
             </div>
           </Link>
           <p className="text-white/70 leading-relaxed font-light">
@@ -24,11 +32,14 @@ export default function Footer() {
             Join the ranks of achievers with our expert mentorship and state-of-the-art facilities.
           </p>
           <div className="flex items-center gap-4">
-            <a href="#" className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-vista-gold transition-all hover:scale-110">
+            <a href="#" className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-vista-gold transition-all hover:scale-110 text-[#1877F2]">
               <Facebook size={20} />
             </a>
-            <a href="#" className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-vista-gold transition-all hover:scale-110">
+            <a href="#" className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-vista-gold transition-all hover:scale-110 text-[#E4405F]">
               <Instagram size={20} />
+            </a>
+            <a href="#" className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-vista-gold transition-all hover:scale-110 text-[#FF0000]">
+              <Youtube size={20} />
             </a>
           </div>
         </div>

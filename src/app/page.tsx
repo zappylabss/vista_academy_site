@@ -9,94 +9,62 @@ import { useState } from "react";
 import { X, Clock, ArrowRight } from "lucide-react";
 
 const COURSES = [
-  { 
-    title: "SI (TALUK)", 
-    icon: "👮", 
+  {
+    title: "TNPSC",
+    icon: "🏛️",
     color: "bg-blue-500",
-    content: "Complete preparation for Sub-Inspector exams. Includes Law courses, Psychology, and Physical Endurance Test guidance.",
-    duration: "6 Months",
+    content: "Master TNPSC Group exams (I, II, IV) with specialized focus on Tamil, General Studies, and current affairs.",
     image: "/images/ach1.png"
   },
-  { 
-    title: "PC", 
-    icon: "🚓", 
+  {
+    title: "BANKING",
+    icon: "💰",
     color: "bg-indigo-500",
-    content: "Police Constable recruitment training focusing on General Knowledge, Mathematics, and Mental Ability.",
-    duration: "4 Months",
+    content: "Comprehensive coaching for IBPS, SBI, and RBI exams. Expert guidance on Aptitude, Reasoning, and Banking Awareness.",
     image: "/images/ach1.png"
   },
-  { 
-    title: "TET", 
-    icon: "🎓", 
+  {
+    title: "SSC",
+    icon: "📑",
     color: "bg-emerald-500",
-    content: "Teacher Eligibility Test preparation covering Child Development, Pedagogy, and Subject Specialization.",
-    duration: "5 Months",
+    content: "Top-tier training for SSC CGL, CHSL, and MTS. Conquer Tier 1 and Tier 2 with expert modules on English and Math.",
     image: "/images/ach2.png"
   },
-  { 
-    title: "TNPSC (TAMIL & ENGLISH)", 
-    icon: "🏛️", 
+  {
+    title: "RAILWAY",
+    icon: "🚄",
     color: "bg-amber-500",
-    content: "Group II & IV preparation with comprehensive Tamil/English language modules and General Studies.",
-    duration: "8 Months",
+    content: "Get ready for RRB NTPC, Group D, and ALP. In-depth coverage of General Science, Maths, and GS with mock tests.",
     image: "/images/ach3.png"
   },
-  { 
-    title: "BANKING (IBPS/SBI)", 
-    icon: "💰", 
+  {
+    title: "SI/PC",
+    icon: "👮",
     color: "bg-rose-500",
-    content: "Master Quantitative Aptitude, Reasoning, and English for Banking PO/Clerk roles. Special focus on Mock tests.",
-    duration: "6 Months",
+    content: "Elite training for TN Police Recruitment. Focused prep for SI/PC written exams and physical guidance.",
     image: "/images/ach4.png"
   },
-  { 
-    title: "SSC", 
-    icon: "📑", 
+  {
+    title: "TNEB",
+    icon: "⚡",
     color: "bg-violet-500",
-    content: "Staff Selection Commission coaching for CGL, CHSL, and MTS. Expert guidance on Tier 1 & 2 patterns.",
-    duration: "7 Months",
+    content: "Specialized technical and non-technical coaching for TNEB recruitment. Build a solid foundation for state-level power exams.",
     image: "/images/ach3.png"
   },
-  { 
-    title: "RRB", 
-    icon: "🚄", 
+  {
+    title: "TANCET",
+    icon: "📖",
     color: "bg-yellow-500",
-    content: "Railway Recruitment Board coaching for NTPC, Group D, and ALP. In-depth Science and GS coverage.",
-    duration: "5 Months",
+    content: "The ultimate prep for MBA/MCA entrance. Boost your scores with advanced reasoning and mathematical workshops.",
     image: "/images/ach2.png"
   },
-  { 
-    title: "TNEB", 
-    icon: "⚡", 
+  {
+    title: "NEET",
+    icon: "🩺",
     color: "bg-orange-500",
-    content: "Technical and Non-Technical coaching for Tamil Nadu Electricity Board recruitment exams.",
-    duration: "4 Months",
+    content: "Integrated medical entrance coaching. Expert faculty for Biology, Physics, and Chemistry for future doctors.",
     image: "/images/ach1.png"
   },
-  { 
-    title: "TANCET", 
-    icon: "📖", 
-    color: "bg-cyan-500",
-    content: "MBA/MCA entrance coaching with advanced reasoning and mathematical focus.",
-    duration: "3 Months",
-    image: "/images/ach2.png"
-  },
-  { 
-    title: "POLICE", 
-    icon: "🛡️", 
-    color: "bg-red-500",
-    content: "Holistic training for various police department roles including physical and written exams.",
-    duration: "5 Months",
-    image: "/images/ach1.png"
-  },
-  { 
-    title: "NEET", 
-    icon: "🩺", 
-    color: "bg-green-500",
-    content: "Biology, Physics, and Chemistry integrated coaching for medical aspirants with expert faculty.",
-    duration: "1 Year",
-    image: "/images/ach4.png"
-  }
 ];
 
 
@@ -115,26 +83,26 @@ export default function Home() {
         className="fixed top-0 left-0 right-0 h-1 bg-vista-gold origin-left z-[100]"
         style={{ scaleX }}
       />
-      
+
       <HeroSection />
-      
+
       <FeaturesSection />
-      
+
       {/* Interactive Exam Spotlight */}
       <section id="exams" className="py-24 px-6 overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="text-center space-y-4">
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-black text-vista-blue uppercase tracking-tighter"
             >
-              Targeted <span className="text-vista-gold underline decoration-vista-gold/30">Exams</span>
+              Courses <span className="text-vista-gold underline decoration-vista-gold/30">Offered</span>
             </motion.h2>
             <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">Join the Elite Preparation Circle</p>
           </div>
-          
+
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
             {COURSES.map((course, idx) => (
               <motion.div
@@ -164,31 +132,31 @@ export default function Home() {
       <AnimatePresence>
         {selectedCourse && (
           <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 md:p-10 pointer-events-none">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedCourse(null)}
               className="absolute inset-0 bg-vista-blue/90 backdrop-blur-xl pointer-events-auto"
             />
-            <motion.div 
+            <motion.div
               layoutId={`course-${COURSES.indexOf(selectedCourse)}`}
               className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-[2rem] md:rounded-[3rem] shadow-2xl pointer-events-auto flex flex-col md:flex-row group overflow-hidden"
             >
               {/* Header section - Sticky on mobile */}
               <div className="md:w-2/5 relative h-40 md:h-auto overflow-hidden bg-slate-50 flex items-center justify-center p-6 md:p-12 sticky top-0 z-30 md:relative border-b md:border-b-0 border-slate-100">
                 <div className="flex flex-row md:flex-col items-center text-center gap-4 md:gap-6">
-                   <div className={`w-16 h-16 md:w-32 md:h-32 rounded-[1.2rem] md:rounded-[2.5rem] ${selectedCourse.color} flex items-center justify-center text-2xl md:text-6xl shadow-xl ring-4 md:ring-8 ring-white/50`}>
-                      {selectedCourse.icon}
-                   </div>
-                   <div className="text-left md:text-center space-y-0.5 md:space-y-1">
-                      <div className="text-vista-blue font-black text-base md:text-xl uppercase tracking-tighter leading-tight">Vista Academy</div>
-                      <div className="text-vista-gold font-bold text-[8px] md:text-xs uppercase tracking-[0.2em]">Excellence Reimagined</div>
-                   </div>
+                  <div className={`w-16 h-16 md:w-32 md:h-32 rounded-[1.2rem] md:rounded-[2.5rem] ${selectedCourse.color} flex items-center justify-center text-2xl md:text-6xl shadow-xl ring-4 md:ring-8 ring-white/50`}>
+                    {selectedCourse.icon}
+                  </div>
+                  <div className="text-left md:text-center space-y-0.5 md:space-y-1">
+                    <div className="text-vista-blue font-black text-base md:text-xl uppercase tracking-tighter leading-tight">Vista Academy</div>
+                    <div className="text-vista-gold font-bold text-[8px] md:text-xs uppercase tracking-[0.2em]">Excellence Reimagined</div>
+                  </div>
                 </div>
-                
+
                 {/* Mobile Close Button (In sticky header) */}
-                <button 
+                <button
                   onClick={() => setSelectedCourse(null)}
                   className="md:hidden absolute top-1/2 -translate-y-1/2 right-6 w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-400 shadow-sm"
                 >
@@ -199,7 +167,7 @@ export default function Home() {
               {/* Body section - Scrollable */}
               <div className="flex-1 p-6 md:p-12 space-y-6 md:space-y-8 relative overflow-y-auto">
                 {/* Desktop Close Button */}
-                <button 
+                <button
                   onClick={() => setSelectedCourse(null)}
                   className="hidden md:flex absolute top-8 right-8 w-10 h-10 rounded-full bg-slate-100 items-center justify-center text-slate-400 hover:text-vista-blue hover:bg-vista-gold transition-colors z-20"
                 >
@@ -211,11 +179,6 @@ export default function Home() {
                     <span className="px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-vista-gold/10 text-vista-gold font-bold text-[10px] md:text-xs uppercase tracking-widest ring-1 ring-vista-gold/20">
                       Standard Program
                     </span>
-                    <span className="text-slate-300 font-black text-xs md:text-base">•</span>
-                    <span className="text-slate-400 font-bold text-[10px] md:text-xs uppercase tracking-widest flex items-center gap-1.5">
-                      <Clock className="w-3 h-3 md:w-4 md:h-4" />
-                      {selectedCourse.duration}
-                    </span>
                   </div>
                   <h3 className="text-2xl md:text-5xl font-black text-vista-blue uppercase tracking-tighter leading-none">{selectedCourse.title}</h3>
                 </div>
@@ -226,7 +189,7 @@ export default function Home() {
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                     {[
-                      { l: "Material", v: "Daily PDFs" },
+                      { l: "Material", v: "Free study Materials" },
                       { l: "Testing", v: "Weekly Exams" },
                       { l: "Mentoring", v: "1-on-1 Help" },
                       { l: "Access", v: "Offline/Online" }
@@ -239,11 +202,11 @@ export default function Home() {
                   </div>
                 </div>
 
-                <button 
+                <button
                   onClick={() => { setSelectedCourse(null); window.location.hash = "#contact"; }}
                   className="w-full h-14 md:h-16 bg-vista-blue text-white rounded-xl md:rounded-2xl font-black uppercase tracking-widest hover:bg-vista-gold hover:text-vista-blue transition-all flex items-center justify-center gap-2 md:gap-3 group/btn"
                 >
-                  Enroll in course
+                  For Enquiry
                   <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>

@@ -2,16 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { GraduationCap, Menu, X, Phone, User, BookOpen, MapPin } from "lucide-react";
+import { GraduationCap, Menu, X, Phone, User, BookOpen, MapPin, Instagram, Youtube, Facebook } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Courses", href: "#courses" },
-  { name: "Exams", href: "#exams" },
+  { name: "Courses", href: "#exams" },
   { name: "Achievers", href: "#achievers" },
-  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -35,13 +33,34 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="bg-vista-blue p-2 rounded-xl group-hover:bg-vista-accent transition-colors">
-            <GraduationCap className="w-8 h-8 text-white" />
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-xl overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-500">
+            <img 
+              src="/images/logo.jpeg" 
+              alt="Vista Academy Logo" 
+              className="w-full h-full object-cover"
+            />
           </div>
-          <div>
-            <span className="text-2xl font-bold text-vista-blue block leading-none">VISTA</span>
-            <span className="text-xs uppercase tracking-widest text-vista-gold font-semibold">Academy</span>
+          <div className="flex flex-col">
+            <div className="flex items-center gap-4">
+              <span className="text-2xl md:text-3xl font-black text-vista-blue tracking-tighter leading-none">
+                VISTA <span className="text-vista-gold">ACADEMY</span>
+              </span>
+              <div className="hidden sm:flex items-center gap-3 border-l-2 border-vista-blue/10 pl-4 h-6">
+                <a href="#" className="hover:scale-125 transition-transform text-[#E4405F]">
+                  <Instagram size={18} />
+                </a>
+                <a href="#" className="hover:scale-125 transition-transform text-[#FF0000]">
+                  <Youtube size={18} />
+                </a>
+                <a href="#" className="hover:scale-125 transition-transform text-[#1877F2]">
+                  <Facebook size={18} />
+                </a>
+              </div>
+            </div>
+            <span className="text-[10px] uppercase tracking-[0.3em] text-vista-blue/40 font-black mt-1">
+              Excellence Reimagined
+            </span>
           </div>
         </Link>
 
@@ -60,7 +79,7 @@ export default function Navbar() {
             href="#contact"
             className="bg-vista-blue text-white px-6 py-2.5 rounded-full font-semibold hover:bg-vista-accent transition-all hover:shadow-lg active:scale-95"
           >
-            Join Now
+            For Enquiry
           </Link>
         </div>
 
@@ -88,7 +107,7 @@ export default function Navbar() {
                 <X size={28} />
               </button>
             </div>
-            
+
             <div className="flex flex-col gap-6">
               {navigation.map((item) => (
                 <Link

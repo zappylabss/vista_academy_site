@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Award, Star, Users, Trophy } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Award, Star, Users, Trophy, X } from "lucide-react";
+import { useState } from "react";
 
 const ACHIEVERS = [
   { name: "Jayakodi", role: "SI, TN Police", img: "/images/ach1.png" },
@@ -30,8 +31,12 @@ const ACHIEVERS = [
 const marqueeOne = [...ACHIEVERS.slice(0, 10), ...ACHIEVERS.slice(0, 10)];
 const marqueeTwo = [...ACHIEVERS.slice(10, 20), ...ACHIEVERS.slice(10, 20)];
 
-const AchieverCard = ({ ach }: { ach: typeof ACHIEVERS[0] }) => (
-  <div className="flex-shrink-0 w-64 h-80 mx-4 relative group cursor-pointer">
+const AchieverCard = ({ ach, onClick, id }: { ach: typeof ACHIEVERS[0], onClick: () => void, id: string }) => (
+  <motion.div 
+    layoutId={id}
+    onClick={onClick}
+    className="flex-shrink-0 w-64 h-80 mx-4 relative group cursor-pointer"
+  >
     <div className="absolute inset-0 bg-vista-blue rounded-[2.5rem] overflow-hidden">
       <img
         src={ach.img}
@@ -39,20 +44,17 @@ const AchieverCard = ({ ach }: { ach: typeof ACHIEVERS[0] }) => (
         className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-vista-blue via-vista-blue/40 to-transparent opacity-80 group-hover:opacity-40 transition-opacity" />
-      
-      <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-        <div className="text-white font-black text-xl mb-1 drop-shadow-lg">{ach.name}</div>
-        <div className="text-vista-gold font-bold text-xs uppercase tracking-widest">{ach.role}</div>
-      </div>
 
       <div className="absolute top-6 right-6 w-10 h-10 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
         <Trophy className="text-vista-gold" size={20} />
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 export default function AchieversSection() {
+  const [selected, setSelected] = useState<{ ach: typeof ACHIEVERS[0], id: string } | null>(null);
+
   return (
     <section id="achievers" className="py-24 bg-slate-50 relative overflow-hidden">
       {/* Decorative Elements */}
@@ -95,7 +97,7 @@ export default function AchieversSection() {
         {/* Row 1: Left to Right */}
         <div className="flex overflow-hidden group">
           <motion.div
-            animate={{ x: ["0%", "-50%"] }}
+            animate={selected ? {} : { x: ["0%", "-50%"] }}
             transition={{
               x: {
                 repeat: Infinity,
@@ -107,7 +109,12 @@ export default function AchieversSection() {
             className="flex flex-nowrap"
           >
             {marqueeOne.map((ach, idx) => (
-              <AchieverCard key={`row1-${idx}`} ach={ach} />
+              <AchieverCard 
+                key={`row1-${idx}`} 
+                id={`row1-${idx}`}
+                ach={ach} 
+                onClick={() => setSelected({ ach, id: `row1-${idx}` })}
+              />
             ))}
           </motion.div>
         </div>
@@ -115,7 +122,7 @@ export default function AchieversSection() {
         {/* Row 2: Right to Left */}
         <div className="flex overflow-hidden group">
           <motion.div
-            animate={{ x: ["-50%", "0%"] }}
+            animate={selected ? {} : { x: ["-50%", "0%"] }}
             transition={{
               x: {
                 repeat: Infinity,
@@ -127,7 +134,12 @@ export default function AchieversSection() {
             className="flex flex-nowrap"
           >
             {marqueeTwo.map((ach, idx) => (
-              <AchieverCard key={`row2-${idx}`} ach={ach} />
+              <AchieverCard 
+                key={`row2-${idx}`} 
+                id={`row2-${idx}`}
+                ach={ach} 
+                onClick={() => setSelected({ ach, id: `row2-${idx}` })}
+              />
             ))}
           </motion.div>
         </div>
@@ -160,6 +172,45 @@ export default function AchieversSection() {
            ))}
         </div>
       </div>
+
+      {/* Enlarged Modal */}
+      <AnimatePresence>
+        {selected && (
+          <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 md:p-10">
+             <motion.div 
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               exit={{ opacity: 0 }}
+               onClick={() => setSelected(null)}
+               className="absolute inset-0 bg-vista-blue/90 backdrop-blur-xl"
+             />
+             
+             <motion.div 
+               layoutId={selected.id}
+               className="relative w-full max-w-xl aspect-[4/5] md:aspect-square bg-white rounded-[3rem] overflow-hidden shadow-2xl z-10"
+             >
+                <img 
+                  src={selected.ach.img} 
+                  alt={selected.ach.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-vista-blue/80 via-transparent to-transparent" />
+                
+                <div className="absolute bottom-10 left-10 right-10 text-white">
+                   <div className="text-4xl font-black mb-2">{selected.ach.name}</div>
+                   <div className="text-vista-gold text-lg font-bold uppercase tracking-[0.2em]">{selected.ach.role}</div>
+                </div>
+
+                <button 
+                  onClick={() => setSelected(null)}
+                  className="absolute top-8 right-8 w-14 h-14 rounded-full bg-vista-gold shadow-lg shadow-vista-gold/20 flex items-center justify-center text-vista-blue hover:bg-white transition-all ring-4 ring-vista-gold/30"
+                >
+                  <X size={32} strokeWidth={3} />
+                </button>
+             </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
