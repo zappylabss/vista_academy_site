@@ -14,6 +14,8 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { sendContactEmail } from "@/app/actions/contact";
+import { Loader2 } from "lucide-react";
 
 const locations = [
   {
@@ -41,12 +43,28 @@ const locations = [
 export default function ContactSection() {
   const [activeTab, setActiveTab] = useState(locations[0]);
   const [formData, setFormData] = useState({ name: "", phone: "", course: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleWhatsApp = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Hi Vista Academy (${activeTab.name}), I'm ${formData.name}. My phone number is ${formData.phone}. I'm interested in the ${formData.course} course. Please contact me soon!`;
-    const encoded = encodeURIComponent(text);
-    window.open(`https://wa.me/${activeTab.wa}?text=${encoded}`, "_blank");
+    setIsSubmitting(true);
+
+    try {
+      // Send data to Email
+      await sendContactEmail({
+        ...formData,
+        branch: activeTab.name
+      });
+
+      // Existing WhatsApp feature
+      const text = `Hi Vista Academy (${activeTab.name}), I'm ${formData.name}. My phone number is ${formData.phone}. I'm interested in the ${formData.course} course. Please contact me soon!`;
+      const encoded = encodeURIComponent(text);
+      window.open(`https://wa.me/${activeTab.wa}?text=${encoded}`, "_blank");
+    } catch (error) {
+      console.error("Form submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -154,7 +172,7 @@ export default function ContactSection() {
               <h4 className="text-2xl font-black text-vista-blue mb-2">Instant Admission <span className="text-vista-gold underline decoration-vista-gold/50">Support</span></h4>
               <p className="text-slate-500 mb-8 font-medium">Message our {activeTab.id} counselor directly on WhatsApp.</p>
               
-              <form onSubmit={handleWhatsApp} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-tighter text-slate-400 px-1">Your Name</label>
                   <input 
@@ -200,10 +218,20 @@ export default function ContactSection() {
 
                 <button 
                   type="submit"
-                  className="w-full bg-green-500 text-white py-5 rounded-2xl font-black text-lg flex items-center justify-center gap-3 hover:bg-green-600 transition-all hover:scale-[1.02] active:scale-95 shadow-xl shadow-green-500/20"
+                  disabled={isSubmitting}
+                  className="w-full bg-green-500 text-white py-5 rounded-2xl font-black text-lg flex items-center justify-center gap-3 hover:bg-green-600 transition-all hover:scale-[1.02] active:scale-95 shadow-xl shadow-green-500/20 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  <MessageCircle size={28} />
-                  Connect to {activeTab.id} Branch
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="animate-spin" size={28} />
+                      Processing...
+                    </>
+                  ) : (
+                    <>
+                      <MessageCircle size={28} />
+                      Connect to {activeTab.id} Branch
+                    </>
+                  )}
                 </button>
                 
                 <p className="text-center text-xs font-bold text-slate-400 uppercase tracking-widest pt-4">

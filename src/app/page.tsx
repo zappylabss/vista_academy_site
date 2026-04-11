@@ -3,6 +3,7 @@
 import HeroSection from "@/components/sections/HeroSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 import ContactSection from "@/components/sections/ContactSection";
+import AchieversSection from "@/components/sections/AchieversSection";
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
@@ -97,16 +98,9 @@ const COURSES = [
   }
 ];
 
-const ACHIEVERS = [
-  { name: "Jayakodi", role: "SI, TN Police", img: "/images/ach1.png", size: "tall", story: "Coming from a rural background, Jayakodi's dedication coupled with Vista's focused SI module helped him secure the 14th state rank." },
-  { name: "Suresh", role: "SBI PO", img: "/images/ach2.png", size: "small", story: "Suresh mastered Quantitative Aptitude through our specialized banking workshops, clearing SBI PO in his very first attempt." },
-  { name: "Priya", role: "SSC CGL", img: "/images/ach3.png", size: "small", story: "Priya's consistent performance in our daily mock tests gave her the edge needed to crack the SSC CGL Tier 2 with high marks." },
-  { name: "Malai Mathi", role: "PO, SBI", img: "/images/ach4.png", size: "tall", story: "Through personalized mentorship and interview training, Malai Mathi overcame her communication barriers to become an SBI Officer." }
-];
 
 export default function Home() {
   const [selectedCourse, setSelectedCourse] = useState<null | typeof COURSES[0]>(null);
-  const [selectedAchiever, setSelectedAchiever] = useState<null | typeof ACHIEVERS[0]>(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -245,127 +239,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Achievers Section (Modern Bento Style) */}
-      <section id="testimonials" className="py-24 px-6 bg-vista-blue relative overflow-hidden">
-        {/* Decorative Grid Background */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-             style={{ backgroundImage: "radial-gradient(#fff 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
-        
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-           <motion.div 
-             initial={{ opacity: 0, x: -30 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: true }}
-             className="space-y-8"
-           >
-              <div className="w-14 h-14 bg-vista-gold rounded-2xl flex items-center justify-center shadow-2xl shadow-vista-gold/30 rotate-3">
-                <span className="text-3xl font-black text-vista-blue">"</span>
-              </div>
-              <h2 className="text-5xl md:text-7xl font-black text-white leading-[1.1] tracking-tighter">
-                Our Student <br />
-                <span className="text-vista-gold">Success Stories</span>
-              </h2>
-              <p className="text-white/60 text-xl font-medium leading-relaxed max-w-xl">
-                Real results from real students. See how Vista Academy transformed their career path through dedicated mentorship, structured materials, and consistent testing.
-              </p>
-              <div className="pt-8 flex flex-col gap-6 border-t border-white/10">
-                 <div className="flex items-center gap-6 group">
-                    <div className="text-white text-6xl font-black tracking-tighter group-hover:text-vista-gold transition-colors">2k+</div>
-                    <div className="text-white/40 font-bold text-sm uppercase tracking-widest leading-none">Aspirants <br /> Cracked Govt. Jobs</div>
-                 </div>
-              </div>
-           </motion.div>
-
-           <div className="grid grid-cols-2 gap-4 md:gap-6 relative min-h-[500px]">
-              {ACHIEVERS.map((ach, idx) => (
-                <motion.div 
-                  key={idx}
-                  layoutId={`achiever-${idx}`}
-                  onClick={() => setSelectedAchiever(ach)}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1 }}
-                  viewport={{ once: true }}
-                  className={`relative rounded-[2.5rem] overflow-hidden group ring-1 ring-white/10 cursor-pointer ${
-                    ach.size === "tall" ? "h-[320px]" : "h-[240px]"
-                  } ${idx % 2 !== 0 ? "mt-12" : ""}`}
-                >
-                  <img 
-                    src={ach.img} 
-                    alt={ach.name} 
-                    className="absolute inset-0 w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-vista-blue via-vista-blue/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <div className="text-white font-black text-xl mb-0.5">{ach.name}</div>
-                    <div className="text-vista-gold font-bold text-[10px] uppercase tracking-widest">{ach.role}</div>
-                  </div>
-                  <div className="absolute top-6 right-6 w-10 h-10 rounded-full border border-white/20 bg-white/5 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <svg className="w-5 h-5 text-vista-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 12h14M12 5l7 7-7 7" />
-                      </svg>
-                  </div>
-                </motion.div>
-              ))}
-           </div>
-        </div>
-      </section>
-
-      {/* Achiever Modal */}
-      <AnimatePresence>
-        {selectedAchiever && (
-          <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 md:p-10 pointer-events-none">
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedAchiever(null)}
-              className="absolute inset-0 bg-vista-gold/90 backdrop-blur-xl pointer-events-auto"
-            />
-            <motion.div 
-              layoutId={`achiever-${ACHIEVERS.indexOf(selectedAchiever)}`}
-              className="relative w-full max-w-2xl bg-vista-blue rounded-[3rem] overflow-hidden shadow-2xl pointer-events-auto flex flex-col items-center text-center p-12 group"
-            >
-              <button 
-                onClick={() => setSelectedAchiever(null)}
-                className="absolute top-8 right-8 w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:text-white hover:bg-white/10 transition-colors"
-              >
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-              
-              <div className="w-32 h-32 rounded-3xl overflow-hidden ring-4 ring-vista-gold/50 shadow-2xl mb-8">
-                <img src={selectedAchiever.img} alt={selectedAchiever.name} className="w-full h-full object-cover" />
-              </div>
-              
-              <div className="space-y-6">
-                <div>
-                  <div className="text-vista-gold font-black text-xs uppercase tracking-[0.3em] mb-2">Verified Success</div>
-                  <h3 className="text-5xl font-black text-white uppercase tracking-tighter">{selectedAchiever.name}</h3>
-                  <div className="text-white/40 font-bold text-lg">{selectedAchiever.role}</div>
-                </div>
-                
-                <p className="text-white/80 text-xl font-medium italic leading-relaxed max-w-md">
-                   "{selectedAchiever.story}"
-                </p>
-                
-                <div className="pt-8 border-t border-white/10 flex justify-center gap-12">
-                   <div>
-                     <div className="text-vista-gold text-2xl font-black tracking-tighter">2024</div>
-                     <div className="text-white/30 text-[10px] font-black uppercase tracking-widest">Selection Year</div>
-                   </div>
-                   <div>
-                     <div className="text-vista-gold text-2xl font-black tracking-tighter">AIR 14</div>
-                     <div className="text-white/30 text-[10px] font-black uppercase tracking-widest">Exam Rank</div>
-                   </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+      <AchieversSection />
 
       <ContactSection />
     </>
