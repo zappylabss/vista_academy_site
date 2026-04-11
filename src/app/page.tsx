@@ -6,6 +6,7 @@ import ContactSection from "@/components/sections/ContactSection";
 import AchieversSection from "@/components/sections/AchieversSection";
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { X, Clock, ArrowRight } from "lucide-react";
 
 const COURSES = [
   { 
@@ -172,28 +173,39 @@ export default function Home() {
             />
             <motion.div 
               layoutId={`course-${COURSES.indexOf(selectedCourse)}`}
-              className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto md:overflow-hidden bg-white rounded-[2rem] md:rounded-[3rem] shadow-2xl pointer-events-auto flex flex-col md:flex-row group"
+              className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-[2rem] md:rounded-[3rem] shadow-2xl pointer-events-auto flex flex-col md:flex-row group overflow-hidden"
             >
-              <div className="md:w-2/5 relative h-48 md:h-auto overflow-hidden bg-slate-50 flex items-center justify-center p-8 md:p-12">
-                <div className="flex flex-col items-center text-center gap-4 md:gap-6">
-                   <div className={`w-24 h-24 md:w-32 md:h-32 rounded-[2rem] md:rounded-[2.5rem] ${selectedCourse.color} flex items-center justify-center text-4xl md:text-6xl shadow-2xl ring-4 md:ring-8 ring-white/50 animate-bounce`}>
+              {/* Header section - Sticky on mobile */}
+              <div className="md:w-2/5 relative h-40 md:h-auto overflow-hidden bg-slate-50 flex items-center justify-center p-6 md:p-12 sticky top-0 z-30 md:relative border-b md:border-b-0 border-slate-100">
+                <div className="flex flex-row md:flex-col items-center text-center gap-4 md:gap-6">
+                   <div className={`w-16 h-16 md:w-32 md:h-32 rounded-[1.2rem] md:rounded-[2.5rem] ${selectedCourse.color} flex items-center justify-center text-2xl md:text-6xl shadow-xl ring-4 md:ring-8 ring-white/50`}>
                       {selectedCourse.icon}
                    </div>
-                   <div className="space-y-1">
-                      <div className="text-vista-blue font-black text-lg md:text-xl uppercase tracking-tighter">Vista Academy</div>
-                      <div className="text-vista-gold font-bold text-[10px] md:text-xs uppercase tracking-[0.2em]">Excellence Reimagined</div>
+                   <div className="text-left md:text-center space-y-0.5 md:space-y-1">
+                      <div className="text-vista-blue font-black text-base md:text-xl uppercase tracking-tighter leading-tight">Vista Academy</div>
+                      <div className="text-vista-gold font-bold text-[8px] md:text-xs uppercase tracking-[0.2em]">Excellence Reimagined</div>
                    </div>
                 </div>
-              </div>
-              <div className="flex-1 p-6 md:p-12 space-y-6 md:space-y-8 relative">
+                
+                {/* Mobile Close Button (In sticky header) */}
                 <button 
                   onClick={() => setSelectedCourse(null)}
-                  className="absolute top-4 right-4 md:top-8 md:right-8 w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-vista-blue hover:bg-vista-gold transition-colors z-20"
+                  className="md:hidden absolute top-1/2 -translate-y-1/2 right-6 w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-400 shadow-sm"
                 >
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                  <X size={20} />
                 </button>
+              </div>
+
+              {/* Body section - Scrollable */}
+              <div className="flex-1 p-6 md:p-12 space-y-6 md:space-y-8 relative overflow-y-auto">
+                {/* Desktop Close Button */}
+                <button 
+                  onClick={() => setSelectedCourse(null)}
+                  className="hidden md:flex absolute top-8 right-8 w-10 h-10 rounded-full bg-slate-100 items-center justify-center text-slate-400 hover:text-vista-blue hover:bg-vista-gold transition-colors z-20"
+                >
+                  <X size={24} />
+                </button>
+
                 <div className="space-y-3 md:space-y-4">
                   <div className="flex items-center gap-2 md:gap-3">
                     <span className="px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-vista-gold/10 text-vista-gold font-bold text-[10px] md:text-xs uppercase tracking-widest ring-1 ring-vista-gold/20">
@@ -201,16 +213,15 @@ export default function Home() {
                     </span>
                     <span className="text-slate-300 font-black text-xs md:text-base">•</span>
                     <span className="text-slate-400 font-bold text-[10px] md:text-xs uppercase tracking-widest flex items-center gap-1.5">
-                      <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
+                      <Clock className="w-3 h-3 md:w-4 md:h-4" />
                       {selectedCourse.duration}
                     </span>
                   </div>
-                  <h3 className="text-3xl md:text-5xl font-black text-vista-blue uppercase tracking-tighter leading-none">{selectedCourse.title}</h3>
+                  <h3 className="text-2xl md:text-5xl font-black text-vista-blue uppercase tracking-tighter leading-none">{selectedCourse.title}</h3>
                 </div>
+
                 <div className="space-y-5 md:space-y-6">
-                  <p className="text-slate-500 font-medium text-base md:text-lg leading-relaxed">
+                  <p className="text-slate-500 font-medium text-sm md:text-lg leading-relaxed">
                     {selectedCourse.content}
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
@@ -227,14 +238,13 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
+
                 <button 
                   onClick={() => { setSelectedCourse(null); window.location.hash = "#contact"; }}
                   className="w-full h-14 md:h-16 bg-vista-blue text-white rounded-xl md:rounded-2xl font-black uppercase tracking-widest hover:bg-vista-gold hover:text-vista-blue transition-all flex items-center justify-center gap-2 md:gap-3 group/btn"
                 >
                   Enroll in course
-                  <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
+                  <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
             </motion.div>

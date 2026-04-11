@@ -71,6 +71,16 @@ export default function ContactSection() {
     }
   };
 
+  const handleEmail = () => {
+    if (!formData.name || !formData.phone) {
+      alert("Please fill in your name and phone number first.");
+      return;
+    }
+    const subject = `Admission Inquiry - ${activeTab.name}`;
+    const body = `Hi Vista Academy (${activeTab.name}),\n\nI'm interested in the ${formData.course || 'various'} course(s). Here are my details:\n\nName: ${formData.name}\nPhone: ${formData.phone}\nBranch: ${activeTab.name}\n\nPlease contact me with more information.`;
+    window.location.href = `mailto:pravinvista.slm@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <section id="contact" className="py-24 px-6 bg-slate-50 relative overflow-hidden">
       {/* Decorative dots */}
@@ -220,23 +230,34 @@ export default function ContactSection() {
                   </div>
                 </div>
 
-                <button 
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-green-500 text-white py-5 rounded-2xl font-black text-base md:text-lg flex items-center justify-center gap-3 hover:bg-green-600 transition-all hover:scale-[1.02] active:scale-95 shadow-xl shadow-green-500/20 disabled:opacity-70 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="animate-spin" size={24} />
-                      Processing...
-                    </>
-                  ) : (
-                    <>
-                      <MessageCircle size={24} className="md:w-7 md:h-7" />
-                      Connect to {activeTab.id} Branch
-                    </>
-                  )}
-                </button>
+                 <div className="space-y-4">
+                  <button 
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-green-500 text-white py-5 rounded-2xl font-black text-base md:text-lg flex items-center justify-center gap-3 hover:bg-green-600 transition-all hover:scale-[1.02] active:scale-95 shadow-xl shadow-green-500/20 disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="animate-spin" size={24} />
+                        Processing...
+                      </>
+                    ) : (
+                      <>
+                        <MessageCircle size={24} className="md:w-7 md:h-7" />
+                        Connect to {activeTab.id} Branch
+                      </>
+                    )}
+                  </button>
+
+                  <button 
+                    type="button"
+                    onClick={handleEmail}
+                    className="w-full bg-white text-vista-blue border-2 border-vista-blue/10 py-4 rounded-2xl font-black text-sm md:text-base flex items-center justify-center gap-3 hover:bg-vista-blue/5 transition-all active:scale-95 uppercase tracking-widest"
+                  >
+                    <Mail size={20} className="text-vista-gold" />
+                    Mail us details
+                  </button>
+                </div>
                 
                 <p className="text-center text-xs font-bold text-slate-400 uppercase tracking-widest pt-4">
                   No Hidden Charges • Instant Response
