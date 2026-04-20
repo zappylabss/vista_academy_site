@@ -4,6 +4,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 import ContactSection from "@/components/sections/ContactSection";
 import AchieversSection from "@/components/sections/AchieversSection";
+import AboutUsSection from "@/components/sections/AboutUsSection";
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { X, Clock, ArrowRight } from "lucide-react";
@@ -85,6 +86,8 @@ export default function Home() {
       />
 
       <HeroSection />
+
+      <AboutUsSection />
 
       <FeaturesSection />
 

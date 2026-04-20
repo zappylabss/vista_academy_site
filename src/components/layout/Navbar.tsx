@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 
 const navigation = [
   { name: "Home", href: "/" },
+  { name: "About Us", href: "#about" },
   { name: "Courses", href: "#exams" },
   { name: "Achievers", href: "#achievers" },
 ];
@@ -32,48 +33,64 @@ export default function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-xl overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-500">
-            <img 
-              src="/images/logo.jpeg" 
-              alt="Vista Academy Logo" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="flex flex-col">
-            <div className="flex items-center gap-4">
+        {/* Logo and Social Icons Container */}
+        <div className="flex items-center gap-4">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-xl overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-500">
+              <img 
+                src="/images/logo.jpeg" 
+                alt="Vista Academy Logo" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="flex flex-col">
               <span className="text-2xl md:text-3xl font-black text-vista-blue tracking-tighter leading-none">
                 VISTA <span className="text-vista-gold">ACADEMY</span>
               </span>
-              <div className="hidden sm:flex items-center gap-3 border-l-2 border-vista-blue/10 pl-4 h-6">
-                <a href="#" className="hover:scale-125 transition-transform text-[#E4405F]">
-                  <Instagram size={18} />
-                </a>
-                <a href="#" className="hover:scale-125 transition-transform text-[#FF0000]">
-                  <Youtube size={18} />
-                </a>
-                <a href="#" className="hover:scale-125 transition-transform text-[#1877F2]">
-                  <Facebook size={18} />
-                </a>
-              </div>
+              <span className="text-[10px] uppercase tracking-[0.3em] text-vista-blue/40 font-black mt-1">
+                Excellence Reimagined
+              </span>
             </div>
-            <span className="text-[10px] uppercase tracking-[0.3em] text-vista-blue/40 font-black mt-1">
-              Excellence Reimagined
-            </span>
+          </Link>
+
+          <div className="hidden sm:flex items-center gap-3 border-l-2 border-vista-blue/10 pl-4 h-6">
+            <a href="https://www.instagram.com/vista_academy_tnpsc_ssc_2012?igsh=MXZkMHJuZnB6MmV5dQ==" target="_blank" rel="noopener noreferrer" className="hover:scale-125 transition-transform text-[#E4405F]">
+              <Instagram size={18} />
+            </a>
+            <a href="https://youtube.com/@vistaacademy_since2012?si=4lPqowNdU_BBoVxL" target="_blank" rel="noopener noreferrer" className="hover:scale-125 transition-transform text-[#FF0000]">
+              <Youtube size={18} />
+            </a>
+            <a href="https://facebook.com/VISTAACADEMY2012" target="_blank" rel="noopener noreferrer" className="hover:scale-125 transition-transform text-[#1877F2]">
+              <Facebook size={18} />
+            </a>
           </div>
-        </Link>
+        </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-vista-blue hover:text-vista-gold font-medium transition-colors"
-            >
-              {item.name}
-            </Link>
+            <div key={item.name} className="relative group">
+              <Link
+                href={item.href}
+                className="text-vista-blue hover:text-vista-gold font-medium transition-colors py-2"
+              >
+                {item.name}
+              </Link>
+
+              {item.name === "Courses" && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-white rounded-2xl shadow-xl shadow-vista-blue/10 ring-1 ring-black/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 overflow-hidden divide-y divide-slate-100">
+                  {["TNPSC", "BANKING", "SSC", "RAILWAY", "SI/PC", "TNEB", "TANCET", "NEET"].map((course) => (
+                    <Link
+                      key={course}
+                      href="#exams"
+                      className="block px-6 py-3 text-sm font-bold text-vista-blue hover:text-vista-gold hover:bg-slate-50 transition-colors uppercase tracking-wider"
+                    >
+                      {course}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
           <Link
             href="#contact"

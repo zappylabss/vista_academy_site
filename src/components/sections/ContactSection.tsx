@@ -109,6 +109,7 @@ export default function ContactSection() {
                 <button
                   key={loc.id}
                   onClick={() => setActiveTab(loc)}
+                  suppressHydrationWarning
                   className={cn(
                     "px-4 md:px-8 py-3 rounded-xl font-bold transition-all text-xs md:text-sm uppercase tracking-widest",
                     activeTab.id === loc.id
@@ -195,6 +196,7 @@ export default function ContactSection() {
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     type="text"
                     placeholder="Enter your full name"
+                    suppressHydrationWarning
                     className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-vista-gold/50 transition-all font-medium text-vista-blue placeholder:text-slate-300"
                   />
                 </div>
@@ -208,6 +210,7 @@ export default function ContactSection() {
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       type="tel"
                       placeholder="10 digit number"
+                      suppressHydrationWarning
                       className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-vista-gold/50 transition-all font-medium text-vista-blue"
                     />
                   </div>
@@ -216,6 +219,7 @@ export default function ContactSection() {
                     <select
                       value={formData.course}
                       onChange={(e) => setFormData({ ...formData, course: e.target.value })}
+                      suppressHydrationWarning
                       className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-vista-gold/50 transition-all font-bold text-vista-blue appearance-none"
                     >
                       <option value="">Select Exam</option>
@@ -235,6 +239,7 @@ export default function ContactSection() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
+                    suppressHydrationWarning
                     className="w-full bg-green-500 text-white py-5 rounded-2xl font-black text-base md:text-lg flex items-center justify-center gap-3 hover:bg-green-600 transition-all hover:scale-[1.02] active:scale-95 shadow-xl shadow-green-500/20 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
@@ -253,6 +258,7 @@ export default function ContactSection() {
                   <button
                     type="button"
                     onClick={handleEmail}
+                    suppressHydrationWarning
                     className="w-full bg-white text-vista-blue border-2 border-vista-blue/10 py-4 rounded-2xl font-black text-sm md:text-base flex items-center justify-center gap-3 hover:bg-vista-blue/5 transition-all active:scale-95 uppercase tracking-widest"
                   >
                     <Mail size={20} className="text-vista-gold" />

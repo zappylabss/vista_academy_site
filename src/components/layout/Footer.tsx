@@ -32,13 +32,13 @@ export default function Footer() {
             Join the ranks of achievers with our expert mentorship and state-of-the-art facilities.
           </p>
           <div className="flex items-center gap-4">
-            <a href="#" className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-vista-gold transition-all hover:scale-110 text-[#1877F2]">
+            <a href="https://facebook.com/VISTAACADEMY2012" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-vista-gold transition-all hover:scale-110 text-[#1877F2]">
               <Facebook size={20} />
             </a>
-            <a href="#" className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-vista-gold transition-all hover:scale-110 text-[#E4405F]">
+            <a href="https://www.instagram.com/vista_academy_tnpsc_ssc_2012?igsh=MXZkMHJuZnB6MmV5dQ==" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-vista-gold transition-all hover:scale-110 text-[#E4405F]">
               <Instagram size={20} />
             </a>
-            <a href="#" className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-vista-gold transition-all hover:scale-110 text-[#FF0000]">
+            <a href="https://youtube.com/@vistaacademy_since2012?si=4lPqowNdU_BBoVxL" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 flex items-center justify-center rounded-full hover:bg-vista-gold transition-all hover:scale-110 text-[#FF0000]">
               <Youtube size={20} />
             </a>
           </div>

@@ -187,19 +187,13 @@ export default function AchieversSection() {
              
              <motion.div 
                layoutId={selected.id}
-               className="relative w-full max-w-xl aspect-[4/5] md:aspect-square bg-white rounded-[3rem] overflow-hidden shadow-2xl z-10"
+               className="relative w-full max-w-xl aspect-[4/5] md:aspect-square bg-black rounded-[3rem] overflow-hidden shadow-2xl z-10 flex items-center justify-center p-4"
              >
                 <img 
                   src={selected.ach.img} 
                   alt={selected.ach.name}
-                  className="w-full h-full object-cover"
+                  className="max-w-full max-h-full object-contain rounded-2xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-vista-blue/80 via-transparent to-transparent" />
-                
-                <div className="absolute bottom-10 left-10 right-10 text-white">
-                   <div className="text-4xl font-black mb-2">{selected.ach.name}</div>
-                   <div className="text-vista-gold text-lg font-bold uppercase tracking-[0.2em]">{selected.ach.role}</div>
-                </div>
 
                 <button 
                   onClick={() => setSelected(null)}
