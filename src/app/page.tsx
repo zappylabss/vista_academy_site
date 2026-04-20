@@ -12,56 +12,56 @@ import { X, Clock, ArrowRight } from "lucide-react";
 const COURSES = [
   {
     title: "TNPSC",
-    icon: "🏛️",
+    icon: "/images/exam_logo/tnpsc.png",
     color: "bg-blue-500",
     content: "Master TNPSC Group exams (I, II, IV) with specialized focus on Tamil, General Studies, and current affairs.",
     image: "/images/ach1.png"
   },
   {
     title: "BANKING",
-    icon: "💰",
+    icon: "/images/exam_logo/banking.png",
     color: "bg-indigo-500",
     content: "Comprehensive coaching for IBPS, SBI, and RBI exams. Expert guidance on Aptitude, Reasoning, and Banking Awareness.",
     image: "/images/ach1.png"
   },
   {
     title: "SSC",
-    icon: "📑",
+    icon: "/images/exam_logo/ssc.png",
     color: "bg-emerald-500",
     content: "Top-tier training for SSC CGL, CHSL, and MTS. Conquer Tier 1 and Tier 2 with expert modules on English and Math.",
     image: "/images/ach2.png"
   },
   {
     title: "RAILWAY",
-    icon: "🚄",
+    icon: "/images/exam_logo/railways.png",
     color: "bg-amber-500",
     content: "Get ready for RRB NTPC, Group D, and ALP. In-depth coverage of General Science, Maths, and GS with mock tests.",
     image: "/images/ach3.png"
   },
   {
     title: "SI/PC",
-    icon: "👮",
+    icon: "/images/exam_logo/si.jpg",
     color: "bg-rose-500",
     content: "Elite training for TN Police Recruitment. Focused prep for SI/PC written exams and physical guidance.",
     image: "/images/ach4.png"
   },
   {
     title: "TNEB",
-    icon: "⚡",
+    icon: "/images/exam_logo/tneb.png",
     color: "bg-violet-500",
     content: "Specialized technical and non-technical coaching for TNEB recruitment. Build a solid foundation for state-level power exams.",
     image: "/images/ach3.png"
   },
   {
     title: "TANCET",
-    icon: "📖",
+    icon: "/images/exam_logo/tancet.png",
     color: "bg-yellow-500",
     content: "The ultimate prep for MBA/MCA entrance. Boost your scores with advanced reasoning and mathematical workshops.",
     image: "/images/ach2.png"
   },
   {
     title: "NEET",
-    icon: "🩺",
+    icon: "/images/exam_logo/neet.jpg",
     color: "bg-orange-500",
     content: "Integrated medical entrance coaching. Expert faculty for Biology, Physics, and Chemistry for future doctors.",
     image: "/images/ach1.png"
@@ -116,11 +116,11 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: idx * 0.05 }}
                 viewport={{ once: true }}
-                className="h-32 md:h-40 rounded-[2.5rem] bg-slate-50 flex flex-col items-center justify-center p-4 md:p-6 text-center ring-1 ring-black/5 hover:ring-vista-gold/50 hover:bg-white hover:shadow-2xl hover:shadow-vista-gold/10 transition-all cursor-pointer group relative overflow-hidden"
+                className="h-36 md:h-48 rounded-[2.5rem] bg-slate-50 flex flex-col items-center justify-center p-4 md:p-6 text-center ring-1 ring-black/5 hover:ring-vista-gold/50 hover:bg-white hover:shadow-2xl hover:shadow-vista-gold/10 transition-all cursor-pointer group relative overflow-hidden"
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-br from-vista-gold/5 to-transparent pointer-events-none" />
-                <div className="text-4xl md:text-5xl mb-3 group-hover:scale-110 transition-transform duration-500 drop-shadow-sm">
-                  {course.icon}
+                <div className="w-20 h-20 md:w-28 md:h-28 mb-3 group-hover:scale-110 transition-transform duration-500 drop-shadow-sm flex items-center justify-center bg-white rounded-2xl p-2 shadow-sm border border-slate-100">
+                  <img src={course.icon} alt={course.title} className="w-full h-full object-contain mix-blend-multiply" />
                 </div>
                 <span className="text-vista-blue font-black text-[10px] md:text-xs group-hover:text-vista-gold transition-all line-clamp-2 uppercase tracking-tighter leading-tight relative z-10">
                   {course.title}
@@ -149,8 +149,8 @@ export default function Home() {
               {/* Header section - Sticky on mobile */}
               <div className="md:w-2/5 relative h-40 md:h-auto overflow-hidden bg-slate-50 flex items-center justify-center p-6 md:p-12 sticky top-0 z-30 md:relative border-b md:border-b-0 border-slate-100">
                 <div className="flex flex-row md:flex-col items-center text-center gap-4 md:gap-6">
-                  <div className={`w-16 h-16 md:w-32 md:h-32 rounded-[1.2rem] md:rounded-[2.5rem] ${selectedCourse.color} flex items-center justify-center text-2xl md:text-6xl shadow-xl ring-4 md:ring-8 ring-white/50`}>
-                    {selectedCourse.icon}
+                  <div className={`w-20 h-20 md:w-40 md:h-40 rounded-[1.2rem] md:rounded-[2.5rem] bg-white flex items-center justify-center shadow-xl ring-4 md:ring-8 ring-white/50 p-2 md:p-4 border border-slate-100`}>
+                    <img src={selectedCourse.icon} alt={selectedCourse.title} className="w-full h-full object-contain mix-blend-multiply" />
                   </div>
                   <div className="text-left md:text-center space-y-0.5 md:space-y-1">
                     <div className="text-vista-blue font-black text-base md:text-xl uppercase tracking-tighter leading-tight">Vista Academy</div>
