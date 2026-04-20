@@ -109,6 +109,7 @@ export default function HeroSection() {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
+        suppressHydrationWarning
         className="absolute left-8 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-vista-gold hover:text-vista-blue transition-all z-20 group"
       >
         <ChevronLeft size={32} className="group-hover:-translate-x-1 transition-transform" />
@@ -116,6 +117,7 @@ export default function HeroSection() {
 
       <button
         onClick={nextSlide}
+        suppressHydrationWarning
         className="absolute right-8 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-vista-gold hover:text-vista-blue transition-all z-20 group"
       >
         <ChevronRight size={32} className="group-hover:translate-x-1 transition-transform" />
@@ -127,6 +129,7 @@ export default function HeroSection() {
           <button
             key={i}
             onClick={() => setCurrentIndex(i)}
+            suppressHydrationWarning
             className={`h-1.5 transition-all duration-500 rounded-full ${i === currentIndex ? "w-12 bg-vista-gold" : "w-6 bg-white/30"}`}
           />
         ))}

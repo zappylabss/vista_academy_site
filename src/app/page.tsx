@@ -120,7 +120,7 @@ export default function Home() {
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-br from-vista-gold/5 to-transparent pointer-events-none" />
                 <div className="w-20 h-20 md:w-28 md:h-28 mb-3 group-hover:scale-110 transition-transform duration-500 drop-shadow-sm flex items-center justify-center bg-white rounded-2xl p-2 shadow-sm border border-slate-100">
-                  <img src={course.icon} alt={course.title} className="w-full h-full object-contain mix-blend-multiply" />
+                  <img src={course.icon} alt={course.title} className="max-w-full max-h-full object-contain" />
                 </div>
                 <span className="text-vista-blue font-black text-[10px] md:text-xs group-hover:text-vista-gold transition-all line-clamp-2 uppercase tracking-tighter leading-tight relative z-10">
                   {course.title}
@@ -150,7 +150,7 @@ export default function Home() {
               <div className="md:w-2/5 relative h-40 md:h-auto overflow-hidden bg-slate-50 flex items-center justify-center p-6 md:p-12 sticky top-0 z-30 md:relative border-b md:border-b-0 border-slate-100">
                 <div className="flex flex-row md:flex-col items-center text-center gap-4 md:gap-6">
                   <div className={`w-20 h-20 md:w-40 md:h-40 rounded-[1.2rem] md:rounded-[2.5rem] bg-white flex items-center justify-center shadow-xl ring-4 md:ring-8 ring-white/50 p-2 md:p-4 border border-slate-100`}>
-                    <img src={selectedCourse.icon} alt={selectedCourse.title} className="w-full h-full object-contain mix-blend-multiply" />
+                    <img src={selectedCourse.icon} alt={selectedCourse.title} className="max-w-full max-h-full object-contain" />
                   </div>
                   <div className="text-left md:text-center space-y-0.5 md:space-y-1">
                     <div className="text-vista-blue font-black text-base md:text-xl uppercase tracking-tighter leading-tight">Vista Academy</div>
