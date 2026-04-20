@@ -79,13 +79,25 @@ export default function Navbar() {
 
               {item.name === "Courses" && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-white rounded-2xl shadow-xl shadow-vista-blue/10 ring-1 ring-black/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 overflow-hidden divide-y divide-slate-100">
-                  {["TNPSC", "BANKING", "SSC", "RAILWAY", "SI/PC", "TNEB", "TANCET", "NEET"].map((course) => (
+                  {[
+                    { name: "TNPSC", icon: "/images/exam_logo/tnpsc.png" },
+                    { name: "BANKING", icon: "/images/exam_logo/banking.png" },
+                    { name: "SSC", icon: "/images/exam_logo/ssc.png" },
+                    { name: "RAILWAY", icon: "/images/exam_logo/railways.png" },
+                    { name: "SI/PC", icon: "/images/exam_logo/si.jpg" },
+                    { name: "TNEB", icon: "/images/exam_logo/tneb.png" },
+                    { name: "TANCET", icon: "/images/exam_logo/tancet.png" },
+                    { name: "NEET", icon: "/images/exam_logo/neet.jpg" },
+                  ].map((course) => (
                     <Link
-                      key={course}
+                      key={course.name}
                       href="#exams"
-                      className="block px-6 py-3 text-sm font-bold text-vista-blue hover:text-vista-gold hover:bg-slate-50 transition-colors uppercase tracking-wider"
+                      className="flex items-center gap-4 px-6 py-3 text-sm font-bold text-vista-blue hover:text-vista-gold hover:bg-slate-50 transition-colors uppercase tracking-wider group/link"
                     >
-                      {course}
+                      <div className="w-8 h-8 rounded-lg bg-white p-1 flex items-center justify-center shadow-sm border border-slate-100 group-hover/link:scale-110 transition-transform">
+                        <img src={course.icon} alt={course.name} className="max-w-full max-h-full object-contain" />
+                      </div>
+                      {course.name}
                     </Link>
                   ))}
                 </div>
