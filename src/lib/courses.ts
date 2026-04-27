@@ -66,7 +66,7 @@ export const COURSES = [
     }
   },
   {
-    title: "Tancent(MBA/MCA)",
+    title: "Tancet(MBA/MCA)",
     icon: "/images/exam_logo/tancet.png",
     color: "bg-yellow-500",
     content: "The ultimate prep for MBA/MCA entrance. Boost your scores with advanced reasoning and mathematical workshops.",

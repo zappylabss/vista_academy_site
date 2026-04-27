@@ -230,7 +230,7 @@ export default function ContactSection() {
                       <option value="RAILWAY">Railway</option>
                       <option value="SI/PC">SI/PC</option>
                       <option value="TNEB">TNEB</option>
-                      <option value="TANCET">Tancent</option>
+                      <option value="TANCET">TANCET</option>
                       <option value="NEET">NEET</option>
                     </select>
                   </div>
