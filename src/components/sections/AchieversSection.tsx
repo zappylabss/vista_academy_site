@@ -187,19 +187,26 @@ export default function AchieversSection() {
              
              <motion.div 
                layoutId={selected.id}
-               className="relative w-full max-w-xl aspect-[4/5] md:aspect-square bg-black rounded-[3rem] overflow-hidden shadow-2xl z-10 flex items-center justify-center p-4"
+               className="relative w-full max-w-2xl aspect-[4/5] md:aspect-square bg-white rounded-[3rem] overflow-hidden shadow-2xl z-10 flex flex-col p-4 md:p-8"
              >
-                <img 
-                  src={selected.ach.img} 
-                  alt={selected.ach.name}
-                  className="max-w-full max-h-full object-contain rounded-2xl"
-                />
+                <div className="flex-1 relative rounded-[2rem] overflow-hidden bg-slate-50 flex items-center justify-center">
+                  <img 
+                    src={selected.ach.img} 
+                    alt={selected.ach.name}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+                
+                <div className="pt-6 pb-2 text-center">
+                  <h3 className="text-2xl font-black text-vista-blue uppercase tracking-tighter">{selected.ach.name}</h3>
+                  <p className="text-vista-gold font-bold uppercase tracking-[0.2em] text-sm">{selected.ach.role}</p>
+                </div>
 
                 <button 
                   onClick={() => setSelected(null)}
-                  className="absolute top-8 right-8 w-14 h-14 rounded-full bg-vista-gold shadow-lg shadow-vista-gold/20 flex items-center justify-center text-vista-blue hover:bg-white transition-all ring-4 ring-vista-gold/30"
+                  className="absolute top-6 right-6 w-12 h-12 rounded-full bg-vista-gold shadow-lg shadow-vista-gold/20 flex items-center justify-center text-vista-blue hover:bg-vista-blue hover:text-white transition-all ring-4 ring-vista-gold/30 z-20"
                 >
-                  <X size={32} strokeWidth={3} />
+                  <X size={24} strokeWidth={3} />
                 </button>
              </motion.div>
           </div>

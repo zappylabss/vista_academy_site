@@ -9,7 +9,9 @@ import { cn } from "@/lib/utils";
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "#about" },
+  { name: "Who We Are", href: "#who-we-are" },
   { name: "Courses", href: "#exams" },
+  { name: "Gallery", href: "#gallery" },
   { name: "Achievers", href: "#achievers" },
 ];
 
@@ -28,15 +30,15 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-8 py-4",
         scrolled ? "glass ring-1 ring-black/5" : "bg-transparent"
       )}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="w-full flex items-center justify-between">
         {/* Logo and Social Icons Container */}
         <div className="flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-xl overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-500">
+          <Link href="/" className="flex items-center gap-2 md:gap-3 group">
+            <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-xl overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-500">
               <img 
                 src="/images/logo.jpeg" 
                 alt="Vista Academy Logo" 
@@ -44,35 +46,35 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl md:text-3xl font-black text-vista-blue tracking-tighter leading-none">
+              <span className="text-xl md:text-2xl font-black text-vista-blue tracking-tighter leading-none">
                 VISTA <span className="text-vista-gold">ACADEMY</span>
               </span>
-              <span className="text-[10px] uppercase tracking-[0.3em] text-vista-blue/40 font-black mt-1">
-                Excellence Reimagined
+              <span className="text-[9px] md:text-[8px] lg:text-[9px] uppercase tracking-[0.1em] text-vista-blue/40 font-black mt-0.5 leading-tight">
+                Victory Institute for Strategic Achievement
               </span>
             </div>
           </Link>
-
-          <div className="hidden sm:flex items-center gap-3 border-l-2 border-vista-blue/10 pl-4 h-6">
+          
+          <div className="hidden lg:flex items-center gap-3 border-l-2 border-vista-blue/10 pl-4 h-6">
             <a href="https://www.instagram.com/vista_academy_tnpsc_ssc_2012?igsh=MXZkMHJuZnB6MmV5dQ==" target="_blank" rel="noopener noreferrer" className="hover:scale-125 transition-transform text-[#E4405F]">
-              <Instagram size={18} />
+              <Instagram size={16} />
             </a>
             <a href="https://youtube.com/@vistaacademy_since2012?si=4lPqowNdU_BBoVxL" target="_blank" rel="noopener noreferrer" className="hover:scale-125 transition-transform text-[#FF0000]">
-              <Youtube size={18} />
+              <Youtube size={16} />
             </a>
             <a href="https://facebook.com/VISTAACADEMY2012" target="_blank" rel="noopener noreferrer" className="hover:scale-125 transition-transform text-[#1877F2]">
-              <Facebook size={18} />
+              <Facebook size={16} />
             </a>
           </div>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-4 lg:gap-6 ml-auto">
           {navigation.map((item) => (
             <div key={item.name} className="relative group">
               <Link
                 href={item.href}
-                className="text-vista-blue hover:text-vista-gold font-medium transition-colors py-2"
+                className="text-vista-blue hover:text-vista-gold font-bold text-[13px] uppercase tracking-tighter transition-colors py-2"
               >
                 {item.name}
               </Link>
@@ -106,7 +108,7 @@ export default function Navbar() {
           ))}
           <Link
             href="#contact"
-            className="bg-vista-blue text-white px-6 py-2.5 rounded-full font-semibold hover:bg-vista-accent transition-all hover:shadow-lg active:scale-95"
+            className="bg-vista-blue text-white px-5 py-2 md:px-6 md:py-2.5 rounded-full text-xs md:text-[13px] font-bold uppercase tracking-widest hover:bg-vista-accent transition-all hover:shadow-lg active:scale-95"
           >
             For Enquiry
           </Link>

@@ -22,11 +22,11 @@ const locations = [
     id: "salem",
     name: "Salem Branch",
     address: " No.11-3,2nd Cross Arthanari Street, Opp to New Busstand,Near to ENT Dr. Sudhakar Hospital, Salem -636009.",
-    phone: "+91 7904953066, 93452 54176, ",
+    phone: "+91 7904953066, 93452 54176",
     wa: "919345254176",
     email: "salem@vistaacademy.com",
     hours: "9:00 AM - 7:00 PM",
-    map: "https://www.google.com/maps?q=Salem"
+    map: "https://maps.app.goo.gl/YUDrK2iFkH4N5gqT7"
   },
   {
     id: "erode",
@@ -36,7 +36,7 @@ const locations = [
     wa: "916381950060",
     email: "erode@vistaacademy.com",
     hours: "9:00 AM - 7:30 PM",
-    map: "https://www.google.com/maps?q=Erode"
+    map: "https://maps.app.goo.gl/B3RzhaMzcFtZZ8nt7"
   }
 ];
 
@@ -77,7 +77,7 @@ export default function ContactSection() {
       return;
     }
     const subject = `Admission Inquiry - ${activeTab.name}`;
-    const body = `Hi Vista Academy (${activeTab.name}),\n\nI'm interested in the ${formData.course || 'various'} course(s). Here are my details:\n\nName: ${formData.name}\nPhone: ${formData.phone}\nBranch: ${activeTab.name}\n\nPlease contact me with more information.`;
+    const body = `Hi Vista Academy (${activeTab.name}),\n\nI'm interested in the ${formData.course} course. Here are my details:\n\nName: ${formData.name}\nPhone: ${formData.phone}\nBranch: ${activeTab.name}\n\nPlease contact me with more information.`;
     window.location.href = `mailto:pravinvista.slm@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
@@ -217,20 +217,21 @@ export default function ContactSection() {
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-tighter text-slate-400 px-1">Desired Course</label>
                     <select
+                      required
                       value={formData.course}
                       onChange={(e) => setFormData({ ...formData, course: e.target.value })}
                       suppressHydrationWarning
-                      className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-vista-gold/50 transition-all font-bold text-vista-blue appearance-none"
+                      className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-vista-gold/50 transition-all font-bold text-vista-blue appearance-none cursor-pointer hover:bg-slate-100/80"
                     >
-                      <option value="">Select Exam</option>
-                      <option value="BANKING">TNPSC</option>
-                      <option value="SSC">Banking</option>
-                      <option value="RAILWAYS">SSC</option>
-                      <option value="TNPSC">Railway</option>
-                      <option value="POLICE">SI/PC</option>
-                      <option value="TET">TNEB</option>
-                      <option value="OTHERS">Tancent</option>
-                      <option value="OTHERS">NEET</option>
+                      <option value="">Select Course</option>
+                      <option value="TNPSC">TNPSC</option>
+                      <option value="BANKING">Banking</option>
+                      <option value="SSC">SSC</option>
+                      <option value="RAILWAY">Railway</option>
+                      <option value="SI/PC">SI/PC</option>
+                      <option value="TNEB">TNEB</option>
+                      <option value="TANCET">Tancent</option>
+                      <option value="NEET">NEET</option>
                     </select>
                   </div>
                 </div>

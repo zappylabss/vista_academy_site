@@ -23,7 +23,7 @@ export default function Footer() {
                 VISTA <span className="text-vista-gold">ACADEMY</span>
               </span>
               <span className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-black mt-0.5">
-                Excellence Reimagined
+                Victory Institute for Strategic Achievement
               </span>
             </div>
           </Link>
@@ -49,10 +49,12 @@ export default function Footer() {
           <h4 className="text-lg font-bold mb-6 text-vista-gold uppercase tracking-widest">Navigation</h4>
           <ul className="space-y-4 text-white/70">
             {[
-              { name: "Home", href: "#" },
-              { name: "Learning Programs", href: "#courses" },
-              { name: "Targeted Exams", href: "#exams" },
-              { name: "Success Stories", href: "#achievers" },
+              { name: "Home", href: "/" },
+              { name: "About Us", href: "#about" },
+              { name: "Who We Are", href: "#who-we-are" },
+              { name: "Courses Offered", href: "#exams" },
+              { name: "Gallery", href: "#gallery" },
+              { name: "Achievers", href: "#achievers" },
               { name: "Our Locations", href: "#contact" }
             ].map((item) => (
               <li key={item.name}>
@@ -67,11 +69,10 @@ export default function Footer() {
 
         {/* Courses */}
         <div>
-          <h4 className="text-lg font-bold mb-6 text-vista-gold uppercase tracking-widest">Exams</h4>
+          <h4 className="text-lg font-bold mb-6 text-vista-gold uppercase tracking-widest">Courses</h4>
           <ul className="space-y-4 text-white/70">
-            {["Banking & Insurance", "SSC (CGL/CHSL/MTS)", "Railways (RRB)", "TNPSC Group Exams", "TNUSRB Police", "Central Govt. Exams", "Others"].map((item) => (
-              <li key={item}>
-
+            {["TNPSC", "BANKING", "SSC", "RRB", "SI/PC", "TNEB(AE/TA)", "TANCET(MBA/MCA)", "NEET"].map((item) => (
+              <li key={item} className="flex items-center gap-2 group cursor-pointer hover:text-vista-gold transition-colors">
                 <span className="w-1.5 h-1.5 bg-white/10 rounded-full group-hover:bg-vista-gold transition-colors" />
                 {item}
               </li>
@@ -88,7 +89,7 @@ export default function Footer() {
           <div className="flex flex-col gap-4 pt-4 border-t border-white/5">
             <div className="flex items-center gap-3 text-white/70 hover:text-white transition-colors">
               <Phone size={18} className="text-vista-gold" />
-              <span className="text-sm font-medium">+91 93452 54176</span>
+              <span className="text-sm font-medium">+91 79049 53066, 93452 54176</span>
             </div>
             <div className="flex items-center gap-3 text-white/70 hover:text-white transition-colors">
               <Mail size={18} className="text-vista-gold" />
