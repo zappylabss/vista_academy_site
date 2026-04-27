@@ -8,22 +8,22 @@ export default function WhoWeAreSection() {
     <section id="who-we-are" className="py-24 px-6 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
+
           {/* Visual Side - CEO Image */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="relative"
           >
             <div className="relative aspect-[4/5] md:aspect-square rounded-[3rem] overflow-hidden shadow-2xl z-10">
-              <img 
-                src="/images/ceo/founder.jpeg" 
-                alt="Praveen Kumar P - Founder & Director" 
+              <img
+                src="/images/ceo/founder.jpeg"
+                alt="Pravin Kumar P - Founder & Director"
                 className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-vista-blue/60 via-transparent to-transparent" />
-              
+
               <div className="absolute bottom-8 left-8 right-8">
                 <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-xl">
                   <h3 className="text-vista-blue font-black text-2xl uppercase tracking-tighter">Praveen Kumar P</h3>
@@ -31,7 +31,7 @@ export default function WhoWeAreSection() {
                 </div>
               </div>
             </div>
-            
+
             {/* Decorative background elements */}
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-vista-gold/10 rounded-full blur-3xl" />
             <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-vista-blue/5 rounded-full blur-3xl" />
@@ -40,7 +40,7 @@ export default function WhoWeAreSection() {
           {/* Content Side */}
           <div className="space-y-8 relative z-10">
             <div className="space-y-4">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -49,7 +49,7 @@ export default function WhoWeAreSection() {
                 <div className="w-12 h-px bg-vista-gold" />
                 <span className="text-vista-gold font-black text-xs uppercase tracking-[0.3em]">Leadership</span>
               </motion.div>
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -60,7 +60,7 @@ export default function WhoWeAreSection() {
               </motion.h2>
             </div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -73,7 +73,7 @@ export default function WhoWeAreSection() {
                   "Our mission is to bridge the gap between ambition and achievement. At Vista Academy, we don't just teach; we mentor the next generation of leaders."
                 </p>
               </div>
-              
+
               <p className="text-slate-600 text-lg leading-relaxed">
                 Led by <span className="text-vista-blue font-bold">Praveen Kumar P</span>, Vista Academy stands as a beacon of excellence in competitive exam coaching. With over <span className="text-vista-gold font-black">14+ years of dedicated experience</span> in the field, our founder brings unparalleled expertise and a proven track record of success.
               </p>
