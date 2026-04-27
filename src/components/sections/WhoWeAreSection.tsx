@@ -75,7 +75,7 @@ export default function WhoWeAreSection() {
               </div>
 
               <p className="text-slate-600 text-lg leading-relaxed">
-                Led by <span className="text-vista-blue font-bold">Praveen Kumar P</span>, Vista Academy stands as a beacon of excellence in competitive exam coaching. With over <span className="text-vista-gold font-black">14+ years of dedicated experience</span> in the field, our founder brings unparalleled expertise and a proven track record of success.
+                Led by <span className="text-vista-blue font-bold">Pravin Kumar P</span>, Vista Academy stands as a beacon of excellence in competitive exam coaching. With over <span className="text-vista-gold font-black">14+ years of dedicated experience</span> in the field, our founder brings unparalleled expertise and a proven track record of success.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">

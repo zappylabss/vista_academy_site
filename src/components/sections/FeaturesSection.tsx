@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  Building2, 
+import {
+  Building2,
   Users,
   Trophy,
   Star
@@ -10,10 +10,10 @@ import {
 import { cn } from "@/lib/utils";
 
 const stats = [
-  { id: 1, label: "Total Selections", value: "50,000+", icon: Trophy, color: "bg-orange-500" },
-  { id: 2, label: "Registered Students", value: "200k+", icon: Users, color: "bg-blue-600" },
-  { id: 3, label: "Offline Centres", value: "40+", icon: Building2, color: "bg-purple-600" },
-  { id: 4, label: "Years of Trust", value: "13+", icon: Star, color: "bg-amber-500" },
+  { id: 1, label: "Total Selections", value: "5000+", icon: Trophy, color: "bg-orange-500" },
+  { id: 2, label: "Registered Students", value: "20k+", icon: Users, color: "bg-blue-600" },
+  { id: 3, label: "Offline Centres", value: "2+", icon: Building2, color: "bg-purple-600" },
+  { id: 4, label: "Years of Trust", value: "14+", icon: Star, color: "bg-amber-500" },
 ];
 
 export default function FeaturesSection() {

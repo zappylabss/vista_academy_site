@@ -6,6 +6,8 @@ import { GraduationCap, Menu, X, Phone, User, BookOpen, MapPin, Instagram, Youtu
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
+import { COURSES } from "@/lib/courses";
+
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "#about" },
@@ -26,6 +28,11 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleCourseClick = (courseTitle: string) => {
+    window.dispatchEvent(new CustomEvent("selectCourse", { detail: courseTitle }));
+    setIsOpen(false);
+  };
 
   return (
     <nav
@@ -81,25 +88,17 @@ export default function Navbar() {
 
               {item.name === "Courses" && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-white rounded-2xl shadow-xl shadow-vista-blue/10 ring-1 ring-black/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 overflow-hidden divide-y divide-slate-100">
-                  {[
-                    { name: "TNPSC", icon: "/images/exam_logo/tnpsc.png" },
-                    { name: "BANKING", icon: "/images/exam_logo/banking.png" },
-                    { name: "SSC", icon: "/images/exam_logo/ssc.png" },
-                    { name: "RAILWAY", icon: "/images/exam_logo/railways.png" },
-                    { name: "SI/PC", icon: "/images/exam_logo/si.jpg" },
-                    { name: "TNEB", icon: "/images/exam_logo/tneb.png" },
-                    { name: "TANCET", icon: "/images/exam_logo/tancet.png" },
-                    { name: "NEET", icon: "/images/exam_logo/neet.jpg" },
-                  ].map((course) => (
+                  {COURSES.map((course) => (
                     <Link
-                      key={course.name}
+                      key={course.title}
                       href="#exams"
+                      onClick={() => handleCourseClick(course.title)}
                       className="flex items-center gap-4 px-6 py-3 text-sm font-bold text-vista-blue hover:text-vista-gold hover:bg-slate-50 transition-colors uppercase tracking-wider group/link"
                     >
                       <div className="w-8 h-8 rounded-lg bg-white p-1 flex items-center justify-center shadow-sm border border-slate-100 group-hover/link:scale-110 transition-transform">
-                        <img src={course.icon} alt={course.name} className="max-w-full max-h-full object-contain" />
+                        <img src={course.icon} alt={course.title} className="max-w-full max-h-full object-contain" />
                       </div>
-                      {course.name}
+                      {course.title.split("(")[0]}
                     </Link>
                   ))}
                 </div>
@@ -139,17 +138,39 @@ export default function Navbar() {
               </button>
             </div>
 
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-5">
               {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-white text-lg font-medium hover:text-vista-gold transition-colors flex items-center gap-3"
-                >
-                  <span className="w-1 h-1 bg-vista-gold rounded-full" />
-                  {item.name}
-                </Link>
+                <div key={item.name} className="space-y-4">
+                  <Link
+                    href={item.href}
+                    onClick={() => {
+                      if (item.name !== "Courses") setIsOpen(false);
+                    }}
+                    className="text-white text-lg font-bold hover:text-vista-gold transition-colors flex items-center gap-3 uppercase tracking-wider"
+                  >
+                    <span className="w-1.5 h-1.5 bg-vista-gold rounded-full" />
+                    {item.name}
+                  </Link>
+
+                  {item.name === "Courses" && (
+                    <div className="grid grid-cols-2 gap-2 pl-4">
+                      {COURSES.map((course) => (
+                        <button
+                          key={course.title}
+                          onClick={() => {
+                            handleCourseClick(course.title);
+                            setIsOpen(false);
+                            window.location.hash = "#exams";
+                          }}
+                          className="flex items-center gap-2 p-2 rounded-lg bg-white/5 text-[10px] font-bold text-white/80 hover:bg-white/10 hover:text-vista-gold transition-all text-left uppercase tracking-tighter"
+                        >
+                          <img src={course.icon} alt="" className="w-4 h-4 object-contain" />
+                          <span className="line-clamp-1">{course.title.split("(")[0]}</span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
               <div className="pt-6 border-t border-white/10">
                 <Link

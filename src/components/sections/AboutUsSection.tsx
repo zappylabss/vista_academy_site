@@ -69,7 +69,7 @@ export default function AboutUsSection() {
                      <GraduationCap size={24} />
                   </div>
                   <div>
-                    <div className="font-black text-vista-blue text-xl">10+ Years</div>
+                    <div className="font-black text-vista-blue text-xl">14+ Years</div>
                     <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Experience</div>
                   </div>
                </div>
