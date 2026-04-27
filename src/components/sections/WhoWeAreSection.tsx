@@ -26,7 +26,7 @@ export default function WhoWeAreSection() {
 
               <div className="absolute bottom-8 left-8 right-8">
                 <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-xl">
-                  <h3 className="text-vista-blue font-black text-2xl uppercase tracking-tighter">Praveen Kumar P</h3>
+                  <h3 className="text-vista-blue font-black text-2xl uppercase tracking-tighter">Pravin Kumar P</h3>
                   <p className="text-vista-gold font-bold text-sm uppercase tracking-widest">Founder & Director</p>
                 </div>
               </div>
