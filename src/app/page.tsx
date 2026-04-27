@@ -68,7 +68,7 @@ const COURSES = [
     }
   },
   {
-    title: "TNEB(AE/TA)",
+    title: "TNEB (AE/TA)",
     icon: "/images/exam_logo/tneb.png",
     color: "bg-violet-500",
     content: "Specialized technical and non-technical coaching for TNEB recruitment. Build a solid foundation for state-level power exams.",
@@ -79,7 +79,7 @@ const COURSES = [
     }
   },
   {
-    title: "TANCET(MBA/MCA)",
+    title: "Tancent(MBA/MCA)",
     icon: "/images/exam_logo/tancet.png",
     color: "bg-yellow-500",
     content: "The ultimate prep for MBA/MCA entrance. Boost your scores with advanced reasoning and mathematical workshops.",

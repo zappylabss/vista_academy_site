@@ -30,6 +30,21 @@ const HERO_IMAGES = [
     url: "/images/hero5.png",
     title: "NEET Integrated Prep",
     subtitle: "Building the foundation for future medical professionals."
+  },
+  {
+    url: "/images/hero6.png",
+    title: "RRB Success Track",
+    subtitle: "Navigate through RRB NTPC, Group D, and ALP with precision coaching."
+  },
+  {
+    url: "/images/hero7.png",
+    title: "TANCET Masters Hub",
+    subtitle: "Expert-led MBA/MCA entrance coaching for top-tier Tamil Nadu colleges."
+  },
+  {
+    url: "/images/hero8.png",
+    title: "TNEB Power Training",
+    subtitle: "Targeted AE/TA recruitment coaching for state electricity board careers."
   }
 ];
 
